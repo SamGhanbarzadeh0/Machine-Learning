@@ -7,7 +7,7 @@ import math
 
 def _finite_vector(values, name):
     arr = [float(v) for v in values]
-    if not arr or not all((math.isfinite(v) for v in arr)):
+    if not arr or not all(math.isfinite(v) for v in arr):
         raise ValueError(f'{name} must contain finite nonempty values')
     return arr
 
@@ -17,7 +17,7 @@ def mean(values):
 
 
 def dot(a, b):
-    return math.fsum((x * y for x, y in zip(a, b)))
+    return math.fsum(x * y for x, y in zip(a, b))
 
 
 def quantile(values, q):
@@ -30,12 +30,13 @@ def quantile(values, q):
 
 def variance(a, ddof=0):
     m = mean(a)
-    return math.fsum(((v - m) ** 2 for v in a)) / (len(a) - ddof)
+    return math.fsum((v - m) ** 2 for v in a) / (len(a) - ddof)
 
 
 def confusion_by_class(actual, estimated, classes):
     labels = list(classes)
-    if len(labels) < 2 or len(set(labels)) != len(labels) or len(actual) != len(estimated) or (not len(actual)):
+    if (len(labels) < 2 or len(set(labels)) != len(labels)
+            or len(actual) != len(estimated) or len(actual) == 0):
         raise ValueError('Invalid class labels or unaligned cases')
     index = {label: i for i, label in enumerate(labels)}
     matrix = [[0] * len(labels) for _ in labels]
@@ -45,13 +46,16 @@ def confusion_by_class(actual, estimated, classes):
 
 
 def extended_classification(actual, estimated, classes, *, decision_scores=None, confidence=True):
+    """ROC AUC and AP are available for binary classes with continuous scores."""
     matrix = confusion_by_class(actual, estimated, classes)
     n = len(actual)
     k = len(classes)
     t = list(map(sum, matrix))
     p = list(map(sum, zip(*matrix)))
     hits = [matrix[i][i] for i in range(k)]
-    div = lambda a, b: a / b if b else 0.0
+    def div(a, b):
+        return a / b if b else 0.0
+
     records = {}
     for i, label in enumerate(classes):
         tp = hits[i]
@@ -85,8 +89,7 @@ def extended_classification(actual, estimated, classes, *, decision_scores=None,
         'confusion_matrix': matrix,
         'per_class': records,
         'roc_auc': None,
-        'average_precision': None,
-        'roc_note': 'Requires genuine continuous class scores; unavailable for hard-label multiclass outputs.'
+        'average_precision': None
     }
     for key in ('precision', 'recall', 'f1', 'specificity', 'jaccard'):
         result['macro_' + key] = mean([r[key] for r in rows])
@@ -114,8 +117,7 @@ def extended_classification(actual, estimated, classes, *, decision_scores=None,
             c = binary_score_curve([v == classes[1] for v in actual], decision_scores)
             result.update(
                 roc_auc=c['roc_auc'],
-                average_precision=c['average_precision'],
-                roc_note='Exact score thresholds; uncalibrated margins.'
+                average_precision=c['average_precision']
             )
     return result
 
@@ -125,7 +127,7 @@ def binary_score_curve(positives, scores):
     s = _finite_vector(scores, 'scores')
     p = sum(y)
     n = len(y) - p
-    if len(y) != len(s) or not p or (not n):
+    if len(y) != len(s) or not p or not n:
         raise ValueError('Aligned scores and both classes required')
     order = sorted(range(len(s)), key=lambda i: -s[i])
     tp = fp = 0
@@ -137,15 +139,16 @@ def binary_score_curve(positives, scores):
         j = i + 1
         while j < len(order) and s[order[j]] == s[order[i]]:
             j += 1
-        hits = sum((y[k] for k in order[i:j]))
+        hits = sum(y[k] for k in order[i:j])
         tp += hits
         fp += j - i - hits
         x.append(fp / n)
         rec.append(tp / p)
         pr.append(tp / (tp + fp))
         i = j
-    auc = math.fsum(((x[i] - x[i - 1]) * (rec[i] + rec[i - 1]) / 2 for i in range(1, len(x))))
-    ap = math.fsum(((rec[i] - rec[i - 1]) * pr[i] for i in range(1, len(x))))
+    auc = math.fsum((x[i] - x[i - 1]) * (rec[i] + rec[i - 1]) / 2
+                    for i in range(1, len(x)))
+    ap = math.fsum((rec[i] - rec[i - 1]) * pr[i] for i in range(1, len(x)))
     return dict(
         fpr=x,
         tpr=rec,
@@ -181,6 +184,7 @@ def _correlation(a, b):
 
 
 def extended_regression(actual, estimated, *, training_sd=None, thresholds=None, target_units=''):
+    """Adjusted R² is omitted for kernel SVR because effective degrees of freedom are unspecified."""
     a = _finite_vector(actual, 'actual')
     b = _finite_vector(estimated, 'estimated')
     n = len(a)
@@ -217,11 +221,10 @@ def extended_regression(actual, estimated, *, training_sd=None, thresholds=None,
         'mae_over_training_sd': mae / training_sd if training_sd and training_sd > 0 else None,
         'symmetric_mape_percent': 100 * mean([2 * d / (abs(x) + abs(y)) if abs(x) + abs(y) > 0 else 0.0 for x, y, d in zip(a, b, ad)]),
         'wape_percent': 100 * sum(ad) / sum(map(abs, a)) if sum(map(abs, a)) else None,
-        'mape_percent': 100 * mean([d / abs(x) for d, x in zip(ad, a)]) if all((abs(x) > 1e-12 for x in a)) else None,
-        'adjusted_r2': None,
-        'adjusted_r2_note': 'Naive adjusted R² based on input feature count is not valid for nonlinear kernel SVR.'
+        'mape_percent': 100 * mean([d / abs(x) for d, x in zip(ad, a)]) if all(abs(x) > 1e-12 for x in a) else None,
+        'adjusted_r2': None
     }
-    result['absolute_error_within'] = {str(v): sum((d <= v for d in ad)) / n for v in thresholds or []}
+    result['absolute_error_within'] = {str(v): sum(d <= v for d in ad) / n for v in thresholds or []}
     return result
 
 
@@ -250,7 +253,7 @@ def style_figure(fig):
                     return True
                 except ValueError:
                     return t.startswith('$')
-            if labels and (not all((numeric_label(t) for t in labels))):
+            if labels and not all(numeric_label(t) for t in labels):
                 continue
             scale = ax.get_xscale() if dim == 'x' else ax.get_yscale()
             if scale == 'linear':
@@ -303,14 +306,13 @@ def _write_figure(fig, directory, basename):
                 buffer,
                 format='png',
                 bbox_inches='tight',
-                dpi=300,
-                metadata={'Software': 'Independent margin-model report'}
+                dpi=300
             )
         new = buffer.getvalue()
         if path.exists():
             old = path.read_bytes()
             if old != new:
-                raise RuntimeError(f'PROTECTED FIGURE CONFLICT: {path}; retain existing figure for review')
+                raise RuntimeError(f'Existing figure differs: {path}')
         else:
             path.write_bytes(new)
         saved.append(str(path))
@@ -495,66 +497,6 @@ def visualize_regression_bench(scores, title, folder, basename):
         )
     ax.set_xticks(x, names, rotation=15, ha='right')
     ax.set(ylabel='Mean absolute error (target units)', title=title)
-    fig.tight_layout()
-    result = _write_figure(fig, folder, basename)
-    plt.close(fig)
-    return result
-
-
-def visualize_patient_mae(by_patient, baseline, folder, basename):
-    plt = _take_figures_backend()
-    names = sorted(by_patient, key=lambda x: int(x))
-    x = list(range(len(names)))
-    fig, ax = plt.subplots(figsize=(8.5, 4.5))
-    ax.bar([v - 0.19 for v in x], [by_patient[n] for n in names], 0.38, label='Custom ε-SVR')
-    ax.bar([v + 0.19 for v in x], [baseline[n] for n in names], 0.38, label='Train-mean baseline')
-    ax.set_xticks(x, names)
-    ax.set(
-        xlabel='Held-out patient identifier',
-        ylabel='MAE (motor UPDRS)',
-        title='Patient-level prediction errors (held-out participants)'
-    )
-    ax.legend(frameon=False)
-    fig.tight_layout()
-    result = _write_figure(fig, folder, basename)
-    plt.close(fig)
-    return result
-
-
-def visualize_binary_curves(positives, scores, folder, basename):
-    plt = _take_figures_backend()
-    curve = binary_score_curve(positives, scores)
-    fig, (left, right) = plt.subplots(1, 2, figsize=(9.3, 4.2))
-    left.plot(curve['fpr'], curve['tpr'], linewidth=1.8, label=f"AUC = {curve['roc_auc']:.3f}")
-    left.plot([0, 1], [0, 1], linestyle='--', color='gray')
-    left.set(
-        xlabel='False-positive rate',
-        ylabel='True-positive rate',
-        title='ROC curve',
-        xlim=(0, 1),
-        ylim=(0, 1)
-    )
-    left.legend(frameon=False)
-    right.step(
-        curve['recall'],
-        curve['precision'],
-        where='post',
-        label=f"AP = {curve['average_precision']:.3f}"
-    )
-    right.axhline(
-        curve['positive_prevalence'],
-        linestyle='--',
-        color='gray',
-        label='Positive prevalence'
-    )
-    right.set(
-        xlabel='Recall',
-        ylabel='Precision',
-        title='Precision–recall curve',
-        xlim=(0, 1),
-        ylim=(0, 1)
-    )
-    right.legend(frameon=False)
     fig.tight_layout()
     result = _write_figure(fig, folder, basename)
     plt.close(fig)

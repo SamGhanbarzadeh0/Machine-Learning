@@ -18,12 +18,98 @@ jobs:
         working-directory: SVM-SVR
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
       - run: python -m pip install -r requirements.txt pytest
       - run: python -m pip check
       - run: python -m pytest Foundations/Tests -q
+      - name: Compare reporting functions
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import random
+          import subprocess
+          import tempfile
+          from pathlib import Path
+          from PIL import Image
+
+          module = Path('Foundations/Code/report_evaluation.py')
+          old_bytes = subprocess.check_output([
+              'git', 'show', os.environ['BASE_SHA'] + ':SVM-SVR/' + module.as_posix()
+          ])
+          new_bytes = module.read_bytes()
+          if old_bytes == new_bytes:
+              print('Reporting module unchanged.')
+              raise SystemExit(0)
+          index = json.loads(Path('Foundations/Results/Benchmark/validation_status.json').read_text())
+          if hashlib.sha256(old_bytes).hexdigest() == index['report_module_sha256']:
+              print('Previous reporting module matches the saved benchmark hash.')
+          before, after = {}, {}
+          exec(compile(old_bytes, 'previous_report', 'exec'), before)
+          exec(compile(new_bytes, 'report_evaluation', 'exec'), after)
+
+          def compare(name, *args, **kwargs):
+              a = before[name](*args, **kwargs)
+              b = after[name](*args, **kwargs)
+              for field in ('roc_note', 'adjusted_r2_note'):
+                  if isinstance(a, dict):
+                      a.pop(field, None)
+                  if isinstance(b, dict):
+                      b.pop(field, None)
+              assert a == b, name
+
+          rng = random.Random(42)
+          for k in (2, 3, 6):
+              for _ in range(30):
+                  truth = list(range(k)) + [rng.randrange(k) for _ in range(40)]
+                  predicted = [rng.randrange(k) for _ in truth]
+                  compare('confusion_by_class', truth, predicted, list(range(k)))
+                  compare('extended_classification', truth, predicted, list(range(k)))
+                  if k == 2:
+                      margins = [rng.randrange(-5, 6) / 2 for _ in truth]
+                      compare('extended_classification', truth, predicted, [0, 1],
+                              decision_scores=margins)
+                      compare('binary_score_curve', [v == 1 for v in truth], margins)
+
+          for _ in range(90):
+              truth = [rng.uniform(30, 130) for _ in range(40)]
+              predicted = [v + rng.gauss(0, 4) for v in truth]
+              compare('extended_regression', truth, predicted, thresholds=[2, 5, 10],
+                      training_sd=20., target_units='kg')
+          compare('extended_regression', [0., 0., 0.], [1., 2., 3.])
+          compare('binary_score_curve', [True, False], [0.5, 0.5])
+          print('All numerical comparisons match.')
+
+          truth = [0, 0, 1, 1]
+          predicted = [0, 1, 1, 1]
+          classification = after['extended_classification'](truth, predicted, [0, 1])
+          actual, estimated = [50., 70., 90.], [52., 72., 92.]
+          regression = after['extended_regression'](actual, estimated)
+          fixtures = [
+              ('visualize_confusion', ([[2, 1], [0, 3]], ['A', 'B'], 'Confusion'), {}),
+              ('visualize_confusion', ([[2, 1], [0, 3]], ['A', 'B'], 'Confusion'), {'normalize': True}),
+              ('visualize_per_class', (classification, ['A', 'B'], 'Classwise'), {}),
+              ('visualize_classification_bench', ({'Model': classification}, 'Classification'), {}),
+              ('visualize_observed_predicted', (actual, estimated, 'Regression', 'kg'), {}),
+              ('visualize_residuals', (actual, estimated, 'Residuals', 'kg'), {}),
+              ('visualize_regression_bench', ({'Model': regression}, 'Regression'), {}),
+          ]
+          with tempfile.TemporaryDirectory() as d:
+              for i, (name, args, kwargs) in enumerate(fixtures):
+                  paths_a = before[name](*args, Path(d) / 'before', str(i), **kwargs)
+                  paths_b = after[name](*args, Path(d) / 'after', str(i), **kwargs)
+                  with Image.open(paths_a[1]) as a, Image.open(paths_b[1]) as b:
+                      assert a.size == b.size and a.mode == b.mode and a.tobytes() == b.tobytes(), name
+          print('Seven plot fixtures match pixel for pixel.')
+          PY
       - name: Verify report checksums
         run: |
           python - <<'PY'
