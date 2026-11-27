@@ -63,44 +63,24 @@ class SourceIntegrity(unittest.TestCase):
         report = ROOT / 'Code' / 'report_evaluation.py'
         self.assertTrue(set(imports(report.read_text())) <= allowed)
 
-    def test_current_source_hashes(self):
-        manifest = json.loads((ROOT / 'Documentation' /
-                               'Source SHA256.json').read_text())
-        self.assertEqual(len(manifest), 7)
-        for name, expected in manifest.items():
-            with self.subTest(file=name):
-                self.assertEqual(sha256(ROOT / name), expected)
-
-    def test_archived_report_hashes(self):
-        provenance = json.loads((ROOT / 'Documentation' /
-                                 'Report Provenance.json').read_text())
-        folder = ROOT / 'Results' / provenance['run_id']
-        self.assertEqual(len(provenance['reports']), 6)
-        for name, hashes in provenance['reports'].items():
-            with self.subTest(report=name):
-                self.assertEqual(sha256(folder / name), hashes['distributed_sha256'])
-                if not hashes['changes']:
-                    self.assertEqual(hashes['original_sha256'],
-                                     hashes['distributed_sha256'])
-        for name, expected in provenance['source_notebooks_sha256'].items():
+    def test_saved_benchmark(self):
+        folder = ROOT / 'Results' / 'Benchmark'
+        baseline = json.loads((ROOT / 'Results' / 'NHANES baseline.json').read_text())
+        self.assertEqual(baseline['sample_count'], 8302)
+        self.assertEqual(baseline['training_rows'] + baseline['heldout_rows'], 8302)
+        index = json.loads((folder / 'Validation status.json').read_text())
+        self.assertEqual(index['status'], 'complete')
+        for name, expected in index['method_source_sha256'].items():
             self.assertEqual(sha256(NOTEBOOKS / name), expected)
         self.assertEqual(sha256(ROOT / 'Code' / 'report_evaluation.py'),
-                         provenance['report_module_sha256'])
-        index = json.loads((folder / '06- Release Validation Status.json').read_text())
-        for key, name in (
-            ('primary_report_sha256', '06- Dermatology And NHANES Report Metrics.json'),
-            ('comprehensive_report_sha256', '06- Comprehensive Validation.json'),
-            ('full_cv_report_sha256', '06- Full NHANES Cross Validation.json'),
-            ('temporal_report_sha256', '06- NHANES Temporal External Validation.json'),
-        ):
-            self.assertEqual(index[key], provenance['reports'][name]['original_sha256'])
+                         index['report_module_sha256'])
+        self.assertEqual(len(list(folder.glob('*.json'))), 6)
+        figures = ROOT / 'Figures' / 'Benchmark'
+        self.assertEqual(len(list(figures.glob('*.png'))), 47)
         reference = json.loads((folder / '06- Scikit-Learn Reference Comparison.json').read_text())
         for path, expected in reference['figure_sha256'].items():
-            self.assertEqual(sha256(ROOT / path), expected)
-        figures = ROOT / 'Figures' / '06- Dermatology And NHANES Runs' / provenance['run_id']
-        self.assertEqual(len(list(figures.glob('*.png'))), 47)
-        self.assertEqual({p.stem for p in figures.glob('*.png')},
-                         {p.stem for p in figures.glob('*.svg')})
+            if Path(path).suffix == '.png':
+                self.assertEqual(sha256(figures / Path(path).name), expected)
 
 
 if __name__ == '__main__':

@@ -29,7 +29,7 @@ Both multiclass models correctly classified 71 of the 75 Dermatology test observ
 
 The mean absolute difference between the two SVR implementations was 5.25 g on the test set.
 
-[Results](Foundations/Results/README.md) and [figures](Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49) are from the 27 November 2026 Colab run.
+[Results](Foundations/Results/README.md) and [figures](Foundations/Figures/Benchmark) are from the 27 November 2026 Colab run.
 
 ## Running the benchmark
 
@@ -45,4 +45,4 @@ Open notebook 06 and run the cells in order. It loads the algorithm definitions 
 
 ## Limitations
 
-These two datasets were selected during exploratory development. The Dermatology test set is small, and a compatible external cohort was unavailable. The NHANES development files lack participant IDs; confidence intervals are based on rows. The later-cycle results are a temporal test of body-weight prediction. Clinical use has not been validated.
+These two datasets were selected during exploratory development. The Dermatology test set is small, and a compatible external cohort was unavailable. The NHANES development files lack participant IDs; confidence intervals are based on rows. The later-cycle results are a temporal test of body-weight prediction. The decision margins are uncalibrated; NHANES exam-weighted estimates are descriptive rather than design-based. The largest absolute error in the temporal cohort was 81.97 kg. Clinical use has not been validated.

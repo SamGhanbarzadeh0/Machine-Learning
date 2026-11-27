@@ -1,9 +1,0 @@
-{
-  "Notebooks/01- Optimization And Duality.ipynb": "8bcf4dff007889c35fb4cdaaa93530a3a6a48ab6dd0746457ddc1d43f6f3e326",
-  "Notebooks/02- Linear SVM.ipynb": "c16821bcc604119eb28af76ead6c046de26c7e9532f4b1a6d872e8741283bb55",
-  "Notebooks/03- Kernel SVM.ipynb": "6a622be276300c98bfc6e97f0ea253aaa571de5b9ff04672e8f3608052cd7809",
-  "Notebooks/04- Multiclass SVM.ipynb": "8c47241caa4a6bf0885e9f14ad8c377ced5c1e701e7ddbf1249704f2867087c5",
-  "Notebooks/05- Support Vector Regression.ipynb": "4e656a2cfcb797e75bd1d0c65593892b8698308f229a9d6734e21879d6013395",
-  "Notebooks/06- Medical SVM And SVR Benchmark.ipynb": "7ec7d37205346c84df68c383574ffeb22a411460bf88751be4f564117c6d8b25",
-  "Code/report_evaluation.py": "aef227802e313192567a2c4f8ff56e9f8153eaf92b62bc5cd92b8f300ab6ca78"
-}

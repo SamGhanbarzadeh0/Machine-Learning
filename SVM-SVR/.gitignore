@@ -5,8 +5,7 @@
 **/.ipynb_checkpoints/
 **/Results/06- Full NHANES CV Checkpoints/
 **/Results/06- Dermatology And NHANES Runs/
-**/Figures/06- Dermatology And NHANES Runs/*
-!**/Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/
+**/Figures/06- Dermatology And NHANES Runs/
 *.xpt
 *.csv
 *.bin
