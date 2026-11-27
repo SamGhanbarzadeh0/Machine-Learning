@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Support Vector Machines and Support Vector Regression"
+type: software
+authors:
+  - given-names: Sam
+    family-names: Ghanbarzadeh
+repository-code: "https://github.com/SamGhanbarzadeh0/Machine-Learning"
+abstract: "Python implementations of classical support vector methods with numerical and medical-data benchmarks."

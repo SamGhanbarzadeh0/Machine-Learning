@@ -1,0 +1,204 @@
+{
+  "status": "complete",
+  "protocol": {
+    "run_id": "20261127T080232Z-31999e49",
+    "input_sha256": "65564a5e90de9808022f6867582dcacb8d8f7428d1f8a69b54eb42f2ddab044a",
+    "source_notebook_sha256": {
+      "01- Optimization And Duality.ipynb": "8bcf4dff007889c35fb4cdaaa93530a3a6a48ab6dd0746457ddc1d43f6f3e326",
+      "02- Linear SVM.ipynb": "c16821bcc604119eb28af76ead6c046de26c7e9532f4b1a6d872e8741283bb55",
+      "03- Kernel SVM.ipynb": "6a622be276300c98bfc6e97f0ea253aaa571de5b9ff04672e8f3608052cd7809",
+      "04- Multiclass SVM.ipynb": "8c47241caa4a6bf0885e9f14ad8c377ced5c1e701e7ddbf1249704f2867087c5",
+      "05- Support Vector Regression.ipynb": "4e656a2cfcb797e75bd1d0c65593892b8698308f229a9d6734e21879d6013395"
+    },
+    "report_module_sha256": "aef227802e313192567a2c4f8ff56e9f8153eaf92b62bc5cd92b8f300ab6ca78",
+    "sklearn_version": "1.6.1",
+    "svc_parameters": {
+      "kernel": "linear",
+      "C": 0.5,
+      "tol": 0.001,
+      "probability": false,
+      "cache_size": 200,
+      "max_iter": -1
+    },
+    "svr_parameters": {
+      "kernel": "rbf",
+      "C": 10.0,
+      "epsilon": 0.05,
+      "gamma": 0.03125,
+      "tol": 0.001,
+      "cache_size": 200,
+      "max_iter": -1
+    },
+    "scope": "Same holdouts, training transforms and model settings.",
+    "notes": [
+      "Native SVC uses OVO voting with its own tie resolution; custom OVO uses summed signed margins for vote ties.",
+      "OneVsRestClassifier wraps binary SVC; its scores are uncalibrated decision margins.",
+      "The same numerical tolerance is supplied, but stopping criteria and iteration budgets differ.",
+      "Training time is measured in the current runtime; compiled LIBSVM and pure Python are not hardware-normalized."
+    ]
+  },
+  "classification": {
+    "Manual OVO": {
+      "accuracy": 0.9466666666666667,
+      "balanced_accuracy": 0.936111111111111,
+      "macro_precision": 0.9434523809523809,
+      "macro_recall": 0.936111111111111,
+      "macro_f1": 0.9373219373219372,
+      "weighted_f1": 0.9457549857549857,
+      "multiclass_mcc": 0.9339595422061668,
+      "cohen_kappa": 0.9331252786446724
+    },
+    "sklearn OVO": {
+      "accuracy": 0.9333333333333333,
+      "balanced_accuracy": 0.9209595959595959,
+      "macro_precision": 0.9365079365079364,
+      "macro_recall": 0.9209595959595959,
+      "macro_f1": 0.9258393300946492,
+      "weighted_f1": 0.9322460360758232,
+      "multiclass_mcc": 0.9172175555313499,
+      "cohen_kappa": 0.9161823871256147
+    },
+    "Manual OVR": {
+      "accuracy": 0.9466666666666667,
+      "balanced_accuracy": 0.9388888888888888,
+      "macro_precision": 0.941468253968254,
+      "macro_recall": 0.9388888888888888,
+      "macro_f1": 0.9371489468940744,
+      "weighted_f1": 0.9447893147443374,
+      "multiclass_mcc": 0.9342257756413772,
+      "cohen_kappa": 0.9331848552338531,
+      "macro_roc_auc": 0.9895950345950345,
+      "macro_average_precision": 0.973104399255715
+    },
+    "sklearn OVR": {
+      "accuracy": 0.9466666666666667,
+      "balanced_accuracy": 0.9388888888888888,
+      "macro_precision": 0.941468253968254,
+      "macro_recall": 0.9388888888888888,
+      "macro_f1": 0.9371489468940744,
+      "weighted_f1": 0.9447893147443374,
+      "multiclass_mcc": 0.9342257756413772,
+      "cohen_kappa": 0.9331848552338531,
+      "macro_roc_auc": 0.9895950345950345,
+      "macro_average_precision": 0.973104399255715
+    }
+  },
+  "regression": {
+    "Manual ε-SVR": {
+      "n": 1661,
+      "units": "kg",
+      "mae": 2.66508590897597,
+      "mse": 12.662200083149571,
+      "rmse": 3.5583985278703074,
+      "median_absolute_error": 2.0371714805132726,
+      "max_absolute_error": 16.834568649203092,
+      "error_p90": 5.677047037155447,
+      "error_p95": 7.069363068702003,
+      "bias_prediction_minus_observed": -0.03599704296210222,
+      "error_standard_deviation": 3.5592880393174573,
+      "r2": 0.9719032988338433,
+      "explained_variance": 0.9719061741116577,
+      "pearson_r": 0.9858663190024683,
+      "spearman_rho": 0.9850847836801512,
+      "lin_concordance": 0.985824486403168,
+      "rmse_over_training_sd": 0.1588826035485728,
+      "mae_over_training_sd": 0.11899616768112314,
+      "symmetric_mape_percent": 3.2396418019956177,
+      "wape_percent": 3.24220646814861,
+      "mape_percent": 3.2473702892907492,
+      "adjusted_r2": null,
+      "adjusted_r2_note": "Naive adjusted R² based on input feature count is not valid for nonlinear kernel SVR.",
+      "absolute_error_within": {
+        "2": 0.48946417820590005,
+        "5": 0.8675496688741722,
+        "10": 0.9831426851294401
+      }
+    },
+    "sklearn ε-SVR": {
+      "n": 1661,
+      "units": "kg",
+      "mae": 2.6651658725409595,
+      "mse": 12.663938374820512,
+      "rmse": 3.558642771453818,
+      "median_absolute_error": 2.0349469435387917,
+      "max_absolute_error": 16.860720009259182,
+      "error_p90": 5.657076770683318,
+      "error_p95": 7.058097779435087,
+      "bias_prediction_minus_observed": -0.03547783583454263,
+      "error_standard_deviation": 3.559537584895684,
+      "r2": 0.9718994416635809,
+      "explained_variance": 0.9719022345958264,
+      "pearson_r": 0.9858645977054223,
+      "spearman_rho": 0.9850853558500278,
+      "lin_concordance": 0.9858232666479562,
+      "rmse_over_training_sd": 0.15889350903207733,
+      "mae_over_training_sd": 0.11899973805675562,
+      "symmetric_mape_percent": 3.2397504261024697,
+      "wape_percent": 3.24230374770975,
+      "mape_percent": 3.2475033918739897,
+      "adjusted_r2": null,
+      "adjusted_r2_note": "Naive adjusted R² based on input feature count is not valid for nonlinear kernel SVR.",
+      "absolute_error_within": {
+        "2": 0.4912703190848886,
+        "5": 0.8675496688741722,
+        "10": 0.9825406381697772
+      }
+    }
+  },
+  "prediction_agreement": {
+    "OVO": {
+      "n": 75,
+      "disagree": 1,
+      "agreement_fraction": 0.9866666666666667
+    },
+    "OVR": {
+      "n": 75,
+      "disagree": 0,
+      "agreement_fraction": 1.0
+    },
+    "SVR": {
+      "n": 1661,
+      "mean_absolute_prediction_difference_kg": 0.005253794168305406,
+      "rmse_prediction_difference_kg": 0.007347351004647651,
+      "max_absolute_prediction_difference_kg": 0.05338181217805982,
+      "mean_signed_manual_minus_reference_kg": -0.0005192071275595946
+    }
+  },
+  "timing": {
+    "SVC OVO": {
+      "fit_seconds": 0.011995355000181007,
+      "predict_seconds": 0.0022641670002485625,
+      "support_vector_count_sum": 70
+    },
+    "SVC OVR": {
+      "fit_seconds": 0.019452873999398435,
+      "predict_seconds": 0.0032656210005370667,
+      "support_vector_count_sum": 112
+    },
+    "SVR": {
+      "fit_seconds": 2.9934428799997477,
+      "predict_seconds": 0.3850325229996088,
+      "support_vector_count_sum": 4690
+    },
+    "Manual SVR": {
+      "fit_seconds": 789.4345078960001,
+      "predict_seconds": 17.5732470989999,
+      "support_vector_count_sum": 4687
+    },
+    "Manual OVO + OVR + candidate selection": {
+      "fit_seconds": 3.1773095559999547,
+      "predict_seconds": 0.15608578100011528,
+      "support_vector_count_sum": null
+    }
+  },
+  "reference_metric_crosschecks": "PASS",
+  "interpretation": "Descriptive agreement on the fixed test sets.",
+  "figure_files": [
+    "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Scikit-Learn Reference Comparison.svg",
+    "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Scikit-Learn Reference Comparison.png"
+  ],
+  "figure_sha256": {
+    "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Scikit-Learn Reference Comparison.svg": "eb1c4de387a440db2c06b88e300da8bf07a33bef7bdf5ffa26a308aaa4533d97",
+    "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Scikit-Learn Reference Comparison.png": "f7e34ba34afb5afabfe40f4f495b1cb8a4004bdc1d25405c1b465038d0c83211"
+  }
+}
