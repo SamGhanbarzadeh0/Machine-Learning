@@ -1,4 +1,5 @@
 import ast
+import base64
 import hashlib
 import json
 import sys
@@ -72,10 +73,20 @@ class NotebookTests(unittest.TestCase):
         self.assertEqual(baseline['training_rows'] + baseline['heldout_rows'], 8302)
         index = json.loads((folder / 'validation_status.json').read_text())
         self.assertEqual(index['status'], 'complete')
-        for name, expected in index['method_source_sha256'].items():
-            self.assertEqual(sha256(NOTEBOOKS / name), expected)
-        self.assertEqual(sha256(ROOT / 'Code' / 'report_evaluation.py'),
-                         index['report_module_sha256'])
+        source_hashes = {path.name: sha256(path)
+                         for path in sorted(NOTEBOOKS.glob('0[1-5]- *.ipynb'))}
+        module_hash = sha256(ROOT / 'Code' / 'report_evaluation.py')
+        for name in ('validation_status.json', 'benchmark_metrics.json',
+                     'comprehensive_validation.json'):
+            report = json.loads((folder / name).read_text())
+            self.assertEqual(report['method_source_sha256'], source_hashes)
+            self.assertEqual(report['report_module_sha256'], module_hash)
+        cv = json.loads((folder / 'nhanes_cross_validation.json').read_text())
+        self.assertEqual(cv['protocol']['method_source_sha256'], source_hashes)
+        self.assertEqual(cv['protocol']['report_module_sha256'], module_hash)
+        comparison = json.loads((folder / 'sklearn_comparison.json').read_text())
+        self.assertEqual(comparison['protocol']['source_notebook_sha256'], source_hashes)
+        self.assertEqual(comparison['protocol']['report_module_sha256'], module_hash)
         self.assertEqual(len(list(folder.glob('*.json'))), 6)
         figures = ROOT / 'Figures' / 'Benchmark'
         self.assertEqual(len(list(figures.glob('*.png'))), 47)
@@ -160,6 +171,21 @@ class NotebookTests(unittest.TestCase):
         prediction = svr['measure_epsilon_tube'](tube, x)
         self.assertAlmostEqual(prediction[0], -0.9, places=5)
         self.assertAlmostEqual(prediction[1], 0.9, places=5)
+
+    def test_saved_notebook_figures(self):
+        path = next(NOTEBOOKS.glob('06- *.ipynb'))
+        notebook = nbformat.read(path, as_version=4)
+        cells = [cell for cell in notebook.cells
+                 if 'benchmark_figure' in cell.metadata]
+        self.assertEqual(len(cells), 4)
+        for cell in cells:
+            original = ROOT / 'Figures' / 'Benchmark' / cell.metadata.benchmark_figure
+            with self.subTest(figure=original.name):
+                self.assertEqual(len(cell.attachments), 1)
+                name, mime = next(iter(cell.attachments.items()))
+                self.assertIn('attachment:' + name, cell.source)
+                self.assertEqual(base64.b64decode(mime['image/png'], validate=True),
+                                 original.read_bytes())
 
 
 if __name__ == '__main__':

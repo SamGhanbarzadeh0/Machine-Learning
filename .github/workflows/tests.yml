@@ -22,6 +22,7 @@ jobs:
         with:
           python-version: '3.13'
       - run: python -m pip install -r requirements.txt pytest
+      - run: python -m pip check
       - run: python -m pytest Foundations/Tests -q
       - name: Verify report checksums
         run: |
@@ -43,4 +44,14 @@ jobs:
           comprehensive = json.loads((folder / 'comprehensive_validation.json').read_text())
           assert comprehensive['primary_report_sha256'] == index['primary_report_sha256']
           print('Comprehensive report primary checksum: match')
+          PY
+      - name: Render notebook preview
+        run: |
+          python -m nbconvert --to html --output-dir "${{ runner.temp }}" "Foundations/Notebooks/06- Medical SVM And SVR Benchmark.ipynb"
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          html = (Path(os.environ['RUNNER_TEMP']) / '06- Medical SVM And SVR Benchmark.html').read_text()
+          assert html.count('src="data:image/png;base64,') >= 4
+          print('Four embedded benchmark figures rendered.')
           PY

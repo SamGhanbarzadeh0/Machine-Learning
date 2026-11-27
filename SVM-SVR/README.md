@@ -42,7 +42,7 @@ python -m pytest Foundations/Tests -q
 python -m notebook
 ```
 
-Open notebook 06 and run the cells in order. The notebooks are distributed without cached cell outputs; the figures and reports linked above contain the saved benchmark results. Notebook 06 loads the algorithm definitions from notebooks 01–05 and saves new runs separately. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for the environment and data layout, and [DATA_SOURCES.md](DATA_SOURCES.md) for dataset links and terms of use.
+Open notebook 06 and run the cells in order. Notebook 06 includes selected figures and a summary from the saved run; its code cells have no cached execution outputs. Notebook 06 loads the algorithm definitions from notebooks 01–05 and saves new runs separately. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for the environment and data layout, and [DATA_SOURCES.md](DATA_SOURCES.md) for dataset links and terms of use.
 
 ## Limitations
 
