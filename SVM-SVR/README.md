@@ -42,8 +42,8 @@ python -m pytest Foundations/Tests -q
 python -m notebook
 ```
 
-Open notebook 06 and run the cells in order. Notebook 06 includes selected figures and a summary from the saved run; its code cells have no cached execution outputs. Notebook 06 loads the algorithm definitions from notebooks 01–05 and saves new runs separately. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for the environment and data layout, and [DATA_SOURCES.md](DATA_SOURCES.md) for dataset links and terms of use.
+Open notebook 06 to view the results or run the cells in order. It imports the algorithm definitions from notebooks 01–05 and saves each new experiment separately. The [environment and model settings](REPRODUCIBILITY.md) and [dataset sources](DATA_SOURCES.md) are documented alongside the notebooks.
 
 ## Limitations
 
-These two datasets were selected during exploratory development. The Dermatology test set is small, and a compatible external cohort was unavailable. The NHANES development files lack participant IDs; confidence intervals are based on rows. The later-cycle results are a temporal test of body-weight prediction. The decision margins are uncalibrated; NHANES exam-weighted estimates are descriptive rather than design-based. The largest absolute error in the temporal cohort was 81.97 kg. Clinical use has not been validated.
+Both datasets were explored during development, and the Dermatology test set has only 75 observations without a comparable independent cohort. The NHANES analysis uses row-based confidence intervals because the development CSVs lack participant identifiers. Survey-weighted estimates are descriptive, and the classification margins have not been calibrated. Although the regression performed well on a later survey cycle, the largest absolute prediction error was 81.97 kg; these experiments assess dataset-specific predictive performance rather than clinical utility.
