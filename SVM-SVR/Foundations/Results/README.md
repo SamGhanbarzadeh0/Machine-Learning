@@ -1,3 +1,3 @@
 # Results
 
-[Benchmark](Benchmark) contains the six reports from 27 November 2026. [NHANES baseline](nhanes_baseline.json) is the earlier result used for historical comparison in Notebook 06. The numerical results are unchanged; figure paths refer to the published PNGs. The validation report retains the original run checksums alongside the current report checksums. New runs are saved separately.
+[Benchmark](Benchmark) contains the reports and metrics from the 27 November 2026 run. [NHANES baseline](nhanes_baseline.json) contains the earlier regression result used for comparison in notebook 06. The published figure paths and filenames differ from the original run; the numerical results are unchanged. Both original and current report checksums are recorded in `Benchmark/validation_status.json`. Subsequent runs are saved separately.

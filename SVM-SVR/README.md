@@ -15,17 +15,17 @@ Python implementations of linear and kernel SVMs, one-vs-one (OVO) and one-vs-re
 
 ## Results
 
-Both multiclass models correctly classified 71 of the 75 Dermatology test observations. The NHANES model was trained on 6,641 records and tested on 1,661 records. Five-fold cross-validation used the development set; temporal validation used 5,879 adults from the 2021–2023 survey cycle.
+In the saved benchmark, both multiclass models correctly classified 71 of the 75 Dermatology test observations. The NHANES model was trained on 6,641 records and tested on 1,661 records. Five-fold cross-validation used the development set; temporal validation used 5,879 adults from the 2021–2023 survey cycle.
 
 | Metric | From scratch | Reference or baseline |
 |---|---:|---:|
-| Dermatology OVO accuracy | 94.67% | 93.33% (SVC) |
-| Dermatology OVR accuracy | 94.67% | 94.67% (SVC) |
-| NHANES test R² | 0.971903 | 0.971899 (SVR) |
+| Dermatology OVO accuracy | 94.7% | 93.3% (SVC) |
+| Dermatology OVR accuracy | 94.7% | 94.7% (SVC) |
+| NHANES test R² | 0.9719 | 0.9719 (SVR) |
 | NHANES test MAE (kg) | 2.665 | 2.665 (SVR) |
 | NHANES test RMSE (kg) | 3.558 | 3.559 (SVR) |
-| Full development CV, pooled R² | 0.973941 | 0.962487 (ridge) |
-| Temporal validation MAE (kg) | 2.680 | 3.251 (ridge) |
+| Full development CV, pooled R² | 0.9739 | 0.9625 (ridge) |
+| Temporal validation MAE (kg) | 2.68 | 3.25 (ridge) |
 
 The mean absolute difference between the two SVR implementations was 5.25 g on the test set.
 
@@ -42,7 +42,7 @@ python -m pytest Foundations/Tests -q
 python -m notebook
 ```
 
-Open notebook 06 and run the cells in order. It loads the algorithm definitions from notebooks 01–05. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for the environment and data layout, and [DATA_SOURCES.md](DATA_SOURCES.md) for dataset links and terms of use.
+Open notebook 06 and run the cells in order. The notebooks are distributed without cached cell outputs; the figures and reports linked above contain the saved benchmark results. Notebook 06 loads the algorithm definitions from notebooks 01–05 and saves new runs separately. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for the environment and data layout, and [DATA_SOURCES.md](DATA_SOURCES.md) for dataset links and terms of use.
 
 ## Limitations
 
