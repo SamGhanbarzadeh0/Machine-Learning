@@ -1,0 +1,91 @@
+{
+  "status": "EXECUTED_EXPLORATORY_NHANES_INDEPENDENT_FUNCTIONAL_CORE",
+  "dataset": "CDC NHANES body measures: secondary public CSV, 2017–March 2020",
+  "sample_count": 8302,
+  "training_rows": 6641,
+  "heldout_rows": 1661,
+  "source_sha256_and_git_blobs": {
+    "female": {
+      "rows": 4221,
+      "git_blob_sha1": "83adef2fdcbcb4dd484851ca6db7f477f9383135",
+      "sha256": "861717768d85df1091fdda19c300630651a5879fbe6308a18f5045200afd6a73"
+    },
+    "male": {
+      "rows": 4081,
+      "git_blob_sha1": "d820fa76bc3ba31cf13bf3d9648464720208fe27",
+      "sha256": "4029dad85660b97f7db9c24eaf032b35e186d81e960216972f5c7a81f56dafd4"
+    }
+  },
+  "feature_names": [
+    "BMXHT",
+    "BMXARML",
+    "BMXLEG",
+    "BMXARMC",
+    "BMXHIP",
+    "BMXWAIST",
+    "sex"
+  ],
+  "excluded_derived_features": [
+    "BMI"
+  ],
+  "target": "BMXWT (body weight, kg)",
+  "split_seed": 20261127,
+  "split_unit": "CSV row, no verified participant identifiers",
+  "solver_spec": {
+    "C": 10.0,
+    "epsilon": 0.05,
+    "sigma": 4.0,
+    "precision": 0.001,
+    "update_budgets": 50
+  },
+  "source_notebooks_sha256": {
+    "01- Optimization And Duality.ipynb": "c7a330df765b12ce98a43dfbc7d19f63972218948bdcdcf80af0f53b6088f047",
+    "02- Linear SVM.ipynb": "91ace0997703dfd448e89b75a0e3a653d4781c6baf175df5f3da32feceda2fb6",
+    "03- Kernel SVM.ipynb": "0d6da83445970a9f9aeb6f4cd5c06ccf12210b2a642ad0cf0fd92718edd22b84",
+    "04- Multiclass SVM.ipynb": "d3bf8355055e0527e0be55f7dc4751aea965e8de20c75e23dfb529d4926acc02",
+    "05- Support Vector Regression.ipynb": "aebc44068b03c9c160d6bfbec798d6aebd1d168e10a3af87195c8d95fc615880"
+  },
+  "solver_audit": {
+    "certified": true,
+    "kkt_error": 0.00047603501925023994,
+    "stationarity_gap": 0.000946510133323919,
+    "primal_dual_gap": 0.1210975674475776,
+    "relative_gap": 2.4842520644914775e-05,
+    "support_vector_count": 4686,
+    "pair_updates": 39589,
+    "training_seconds": 263.6880408140005,
+    "reference_seconds": 4.591740820000268
+  },
+  "prediction_metrics": {
+    "custom": {
+      "r2": 0.9719007306801452,
+      "mae_kg": 2.6650439492122575,
+      "rmse_kg": 3.5585611502626984
+    },
+    "reference": {
+      "r2": 0.9718981923376235,
+      "mae_kg": 2.665295644029283,
+      "rmse_kg": 3.5587218776288623
+    },
+    "ridge": {
+      "r2": 0.9609622138935021,
+      "mae_kg": 3.1923279261800643,
+      "rmse_kg": 4.194396765443109
+    },
+    "train_mean": {
+      "r2": -0.0012152708994452865,
+      "mae_kg": 16.70505193640912,
+      "rmse_kg": 21.241767559304325
+    },
+    "mean_absolute_reference_difference_kg": 0.0038518864010732108,
+    "max_absolute_reference_difference_kg": 0.031308973364275516
+  },
+  "go_criterion_satisfied": true,
+  "interpretation": "Exploratory biometrical measurement prediction, not disease diagnosis or novel ML methodology",
+  "limitations": [
+    "Not independently held-out after historical exploratory screening of this dataset",
+    "Patient independence cannot be established from secondary CSV without participant IDs",
+    "The six anthropometric predictors are directly related to body mass; a high R2 is expected",
+    "A reference solver and Ridge are audit comparators, not the independent training source"
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "status": "complete",
+  "protocol": {
+    "version": "full-development-cv-v1",
+    "definition_sha256": "39de093019c080a4b68d645905698c9050cc2c507d9d5e0f104faba9deb34f0e",
+    "seed": 20261129,
+    "n_development": 6641,
+    "n_protected_test": 1661,
+    "folds_sha256": "d8b62a0627d23a5ba35adf01130a6fa1d416a3afbc355dda18242dd4ceaef99d",
+    "development_sha256": "990c02e19620601ee4e62ab03ae968a4bcc71f542d26d95d1477e09023aa8854",
+    "heldout_sha256": "6ad2ba87bddd3c240e25f0c27f01cc21a8732663addefd1aa8eab460781c33e3",
+    "source_data": {
+      "female": {
+        "rows": 4221,
+        "git_blob_sha1": "83adef2fdcbcb4dd484851ca6db7f477f9383135",
+        "sha256": "861717768d85df1091fdda19c300630651a5879fbe6308a18f5045200afd6a73"
+      },
+      "male": {
+        "rows": 4081,
+        "git_blob_sha1": "d820fa76bc3ba31cf13bf3d9648464720208fe27",
+        "sha256": "4029dad85660b97f7db9c24eaf032b35e186d81e960216972f5c7a81f56dafd4"
+      }
+    },
+    "solver_spec": {
+      "C": 10.0,
+      "epsilon": 0.05,
+      "sigma": 4.0,
+      "precision": 0.001,
+      "update_budgets": 50
+    },
+    "method_source_sha256": {
+      "01- Optimization And Duality.ipynb": "8bcf4dff007889c35fb4cdaaa93530a3a6a48ab6dd0746457ddc1d43f6f3e326",
+      "02- Linear SVM.ipynb": "c16821bcc604119eb28af76ead6c046de26c7e9532f4b1a6d872e8741283bb55",
+      "03- Kernel SVM.ipynb": "6a622be276300c98bfc6e97f0ea253aaa571de5b9ff04672e8f3608052cd7809",
+      "04- Multiclass SVM.ipynb": "8c47241caa4a6bf0885e9f14ad8c377ced5c1e701e7ddbf1249704f2867087c5",
+      "05- Support Vector Regression.ipynb": "4e656a2cfcb797e75bd1d0c65593892b8698308f229a9d6734e21879d6013395"
+    },
+    "report_module_sha256": "aef227802e313192567a2c4f8ff56e9f8153eaf92b62bc5cd92b8f300ab6ca78",
+    "preprocessing": "fold-local population moments using math.fsum; ridge penalty 1; unpenalized intercept",
+    "split_unit": "row; no verified participant identifiers"
+  },
+  "protocol_sha256": "90555aefb31804abc72dae31d94d4b63ae8922e9a5a763d3ab1531c58859e476",
+  "fold_records": [
+    {
+      "protocol_sha256": "90555aefb31804abc72dae31d94d4b63ae8922e9a5a763d3ab1531c58859e476",
+      "fold": 1,
+      "training_sha256": "395e7246b3fd5fe82a30a714a2d94cc7b5dfd25fc1eaa5b594e3afed98a2be5e",
+      "validation_sha256": "dab4581a3006cb460443517244aada974c14e6bd54d08f042d6d1588e8a0c175",
+      "n_train": 5312,
+      "n_validation": 1329,
+      "audit": {
+        "certified": true,
+        "kkt": 0.0005643518544640597,
+        "stationarity_gap": 0.0009836983170211644,
+        "relative_gap": 2.7371045239507943e-05,
+        "pair_updates": 34489,
+        "support_vectors": 3736,
+        "gram_bytes": 225738752,
+        "train_seconds": 371.2508130340002,
+        "prediction_seconds": 10.988280769000085
+      },
+      "status": "PASS",
+      "prediction_sha256": "22e13517a090d77eaf0239b02b0b4a18068b77ccb36e4dcdd7ad45f9e9f68303",
+      "metrics": {
+        "SVR": {
+          "r2": 0.9748917078578675,
+          "mae_kg": 2.6773764688613952,
+          "rmse_kg": 3.569426999453102
+        },
+        "Ridge": {
+          "r2": 0.9629533114761499,
+          "mae_kg": 3.245969549372479,
+          "rmse_kg": 4.335753813679672
+        },
+        "Training mean": {
+          "r2": -0.0004219429642013939,
+          "mae_kg": 17.291210043333606,
+          "rmse_kg": 22.531054714437015
+        }
+      }
+    },
+    {
+      "protocol_sha256": "90555aefb31804abc72dae31d94d4b63ae8922e9a5a763d3ab1531c58859e476",
+      "fold": 2,
+      "training_sha256": "66bef7e2bb133e0534c91a6c2140d9b8cfeaa22d3ab0215155e87452994a6e5b",
+      "validation_sha256": "348bc21f177f466afc4e52324b7a0d6225fe9555189816ffa0be8b6ba4bbac81",
+      "n_train": 5313,
+      "n_validation": 1328,
+      "audit": {
+        "certified": true,
+        "kkt": 0.00036386485674895497,
+        "stationarity_gap": 0.0005771299604477864,
+        "relative_gap": 1.1536358650378706e-05,
+        "pair_updates": 41653,
+        "support_vectors": 3757,
+        "gram_bytes": 225823752,
+        "train_seconds": 438.94433282399996,
+        "prediction_seconds": 12.47072843900014
+      },
+      "status": "PASS",
+      "prediction_sha256": "886490a9c2c99d2f287b5fe835d9e60f17e51a828a43065b7addd7a3ff566861",
+      "metrics": {
+        "SVR": {
+          "r2": 0.9755496421142497,
+          "mae_kg": 2.6318541317000417,
+          "rmse_kg": 3.543111603557443
+        },
+        "Ridge": {
+          "r2": 0.964651872478722,
+          "mae_kg": 3.171264169318269,
+          "rmse_kg": 4.2601552748383495
+        },
+        "Training mean": {
+          "r2": -7.713146570842433e-05,
+          "mae_kg": 17.663480984922185,
+          "rmse_kg": 22.659951204555547
+        }
+      }
+    },
+    {
+      "protocol_sha256": "90555aefb31804abc72dae31d94d4b63ae8922e9a5a763d3ab1531c58859e476",
+      "fold": 3,
+      "training_sha256": "f25039a22aa9f54c94c748f22954c9784061910ffbc1af88af77ebd2f1aefd4c",
+      "validation_sha256": "2e55a629b6152cbd7623991756dfd55e4f0cca7fb827082bcdd119f8bf8fa907",
+      "n_train": 5313,
+      "n_validation": 1328,
+      "audit": {
+        "certified": true,
+        "kkt": 0.00021679519352653387,
+        "stationarity_gap": 0.0003984292006871115,
+        "relative_gap": 1.3695536491617304e-05,
+        "pair_updates": 42402,
+        "support_vectors": 3773,
+        "gram_bytes": 225823752,
+        "train_seconds": 451.08823661999986,
+        "prediction_seconds": 12.446026389999588
+      },
+      "status": "PASS",
+      "prediction_sha256": "fcb6c3ee8b615bc89b1b2a0eff0fe2f9be00087ac778935ba65791f7278d8542",
+      "metrics": {
+        "SVR": {
+          "r2": 0.9722176179287367,
+          "mae_kg": 2.7049949538336526,
+          "rmse_kg": 3.719044731230771
+        },
+        "Ridge": {
+          "r2": 0.9592688726518311,
+          "mae_kg": 3.3270353738982497,
+          "rmse_kg": 4.503082228028862
+        },
+        "Training mean": {
+          "r2": -2.7349244332341982e-05,
+          "mae_kg": 17.445056468108458,
+          "rmse_kg": 22.31272438314281
+        }
+      }
+    },
+    {
+      "protocol_sha256": "90555aefb31804abc72dae31d94d4b63ae8922e9a5a763d3ab1531c58859e476",
+      "fold": 4,
+      "training_sha256": "a25eed24a9f8f93fee2439e76771a8814e574dcdd8a04dde499bc0f164168415",
+      "validation_sha256": "4783bdf3fafa289e33e66de14c55049a7593c77947b23cb983c5a935f0725957",
+      "n_train": 5313,
+      "n_validation": 1328,
+      "audit": {
+        "certified": true,
+        "kkt": 0.0003594771498428989,
+        "stationarity_gap": 0.0006509888288039889,
+        "relative_gap": 2.0199977729504642e-05,
+        "pair_updates": 37703,
+        "support_vectors": 3747,
+        "gram_bytes": 225823752,
+        "train_seconds": 416.3773838540001,
+        "prediction_seconds": 12.74949035399959
+      },
+      "status": "PASS",
+      "prediction_sha256": "7259df0d3918f1cc8683df38f0e1487ea55fd19e6d4feddcf8e68e4ceba62a2e",
+      "metrics": {
+        "SVR": {
+          "r2": 0.9734171580804991,
+          "mae_kg": 2.6282597706544415,
+          "rmse_kg": 3.662659897066487
+        },
+        "Ridge": {
+          "r2": 0.9619398292875612,
+          "mae_kg": 3.231581150006302,
+          "rmse_kg": 4.382594152729209
+        },
+        "Training mean": {
+          "r2": -0.0001616257684375899,
+          "mae_kg": 17.155819367248778,
+          "rmse_kg": 22.46627045629134
+        }
+      }
+    },
+    {
+      "protocol_sha256": "90555aefb31804abc72dae31d94d4b63ae8922e9a5a763d3ab1531c58859e476",
+      "fold": 5,
+      "training_sha256": "b51cbb4398c6f3997b90d672c07564842ad917070a590c349b95a1a1fcf503ef",
+      "validation_sha256": "e59bfb226d7fe5e6deec3c365d33c34ce32ba587d70a4881ea90aad4dfedfae4",
+      "n_train": 5313,
+      "n_validation": 1328,
+      "audit": {
+        "certified": true,
+        "kkt": 0.0002506343122967575,
+        "stationarity_gap": 0.0004601865603783839,
+        "relative_gap": 1.4156490642349414e-05,
+        "pair_updates": 38132,
+        "support_vectors": 3775,
+        "gram_bytes": 225823752,
+        "train_seconds": 420.036028083,
+        "prediction_seconds": 12.640981248999651
+      },
+      "status": "PASS",
+      "prediction_sha256": "8185e22b5ff5b8c32fa8dd5298b92cb5a5d6d4f7a7f12ebc73e21d0674b1e85f",
+      "metrics": {
+        "SVR": {
+          "r2": 0.973518627094087,
+          "mae_kg": 2.6424229077647086,
+          "rmse_kg": 3.57993515308752
+        },
+        "Ridge": {
+          "r2": 0.9635294730805177,
+          "mae_kg": 3.141900493939488,
+          "rmse_kg": 4.201224895871152
+        },
+        "Training mean": {
+          "r2": -0.0014265220591769268,
+          "mae_kg": 17.409486321911018,
+          "rmse_kg": 22.014785384040312
+        }
+      }
+    }
+  ],
+  "n_oof": 6641,
+  "pooled_metrics": {
+    "SVR": {
+      "n": 6641,
+      "units": "kg",
+      "mae": 2.656984717609723,
+      "mse": 13.0713014019585,
+      "rmse": 3.615425480072643,
+      "median_absolute_error": 2.037604472060167,
+      "max_absolute_error": 36.137680770305025,
+      "error_p90": 5.510931699880011,
+      "error_p95": 7.087203513674666,
+      "bias_prediction_minus_observed": -0.04517785976061308,
+      "error_standard_deviation": 3.615415415280629,
+      "r2": 0.9739407235737412,
+      "explained_variance": 0.9739447926406374,
+      "pearson_r": 0.9868869277699169,
+      "spearman_rho": 0.9870504645404007,
+      "lin_concordance": 0.9868117063894132,
+      "rmse_over_training_sd": null,
+      "mae_over_training_sd": null,
+      "symmetric_mape_percent": 3.174137145586527,
+      "wape_percent": 3.2035094033834164,
+      "mape_percent": 3.178780708087631,
+      "adjusted_r2": null,
+      "adjusted_r2_note": "Naive adjusted R² based on input feature count is not valid for nonlinear kernel SVR.",
+      "absolute_error_within": {
+        "2": 0.4925463032675802,
+        "5": 0.8673392561361241,
+        "10": 0.9838879686794157
+      }
+    },
+    "Ridge": {
+      "n": 6641,
+      "units": "kg",
+      "mae": 3.2235535232145116,
+      "mse": 18.816568475008165,
+      "rmse": 4.337806873871653,
+      "median_absolute_error": 2.5067123672916836,
+      "max_absolute_error": 30.79853998093131,
+      "error_p90": 6.671309031782272,
+      "error_p95": 8.472521710367033,
+      "bias_prediction_minus_observed": 0.0001911273233499382,
+      "error_standard_deviation": 4.338133499447253,
+      "r2": 0.9624868141124497,
+      "explained_variance": 0.9624868141852762,
+      "pearson_r": 0.9810641245498339,
+      "spearman_rho": 0.9860459302047427,
+      "lin_concordance": 0.9808839571338495,
+      "rmse_over_training_sd": null,
+      "mae_over_training_sd": null,
+      "symmetric_mape_percent": 4.019452825944443,
+      "wape_percent": 3.8866177722006334,
+      "mape_percent": 3.9984166156367076,
+      "adjusted_r2": null,
+      "adjusted_r2_note": "Naive adjusted R² based on input feature count is not valid for nonlinear kernel SVR.",
+      "absolute_error_within": {
+        "2": 0.4046077397982232,
+        "5": 0.8034934497816594,
+        "10": 0.9715404306580334
+      }
+    },
+    "Training mean": {
+      "n": 6641,
+      "units": "kg",
+      "mae": 17.392995307998685,
+      "mse": 501.67361347254035,
+      "rmse": 22.398071646294472,
+      "median_absolute_error": 14.563146997929607,
+      "max_absolute_error": 121.49403350272915,
+      "error_p90": 34.482702804441935,
+      "error_p95": 42.49403350272915,
+      "bias_prediction_minus_observed": -1.742883977200277e-05,
+      "error_standard_deviation": 22.399758184571493,
+      "r2": -0.00014917927623203653,
+      "explained_variance": -0.0001491792756265209,
+      "pearson_r": -0.01628514275836506,
+      "spearman_rho": -0.013171121233335447,
+      "lin_concordance": -0.00013260151628915074,
+      "rmse_over_training_sd": null,
+      "mae_over_training_sd": null,
+      "symmetric_mape_percent": 20.856003367514294,
+      "wape_percent": 20.970622696054882,
+      "mape_percent": 22.172706539362387,
+      "adjusted_r2": null,
+      "adjusted_r2_note": "Naive adjusted R² based on input feature count is not valid for nonlinear kernel SVR.",
+      "absolute_error_within": {
+        "2": 0.07544044571600662,
+        "5": 0.18732118656828792,
+        "10": 0.35521758771269385
+      }
+    }
+  },
+  "fold_summary": [
+    {
+      "model": "SVR",
+      "metric": "r2",
+      "fold_mean": 0.973918950615088,
+      "fold_sd": 0.0013145340427030672
+    },
+    {
+      "model": "SVR",
+      "metric": "mae_kg",
+      "fold_mean": 2.6569816465628477,
+      "fold_sd": 0.03312673197713942
+    },
+    {
+      "model": "SVR",
+      "metric": "rmse_kg",
+      "fold_mean": 3.6148356768790646,
+      "fold_sd": 0.0734353802430351
+    },
+    {
+      "model": "Ridge",
+      "metric": "r2",
+      "fold_mean": 0.9624686717949564,
+      "fold_sd": 0.0020399098734750288
+    },
+    {
+      "model": "Ridge",
+      "metric": "mae_kg",
+      "fold_mean": 3.2235501473069577,
+      "fold_sd": 0.0718971628530031
+    },
+    {
+      "model": "Ridge",
+      "metric": "rmse_kg",
+      "fold_mean": 4.336562073029449,
+      "fold_sd": 0.11619242444828487
+    },
+    {
+      "model": "Training mean",
+      "metric": "r2",
+      "fold_mean": -0.00042291430037133537,
+      "fold_sd": 0.0005812784737661199
+    },
+    {
+      "model": "Training mean",
+      "metric": "mae_kg",
+      "fold_mean": 17.39301063710481,
+      "fold_sd": 0.18891630762802866
+    },
+    {
+      "model": "Training mean",
+      "metric": "rmse_kg",
+      "fold_mean": 22.396957228493406,
+      "fold_sd": 0.24753928054839897
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "run_id": "20261127T080232Z-31999e49",
+  "reports": {
+    "06- Comprehensive Validation.json": {
+      "original_sha256": "68f4f08a405387395ca2956f97f6226063700f2b3344f86c7fa466a0335750cf",
+      "distributed_sha256": "9a14b8abef13c6491a26c67aa6825727e54bf00d119a67cf5175714938e6d7cd",
+      "changes": [
+        "protocol.nhanes_subset_indices: omitted",
+        "dermatology_sensitivity.margins: omitted"
+      ]
+    },
+    "06- Dermatology And NHANES Report Metrics.json": {
+      "original_sha256": "b186934a11d4b49ff1ba9f52cac4a2709fa2166dfba88571b2439ef07b253e08",
+      "distributed_sha256": "6f6e09ba149f94c82e796c7df0f5987263fc89d0293f0bffd8cd542468a2e39e",
+      "changes": [
+        "historical_comparison.archive: relative path"
+      ]
+    },
+    "06- Full NHANES Cross Validation.json": {
+      "original_sha256": "245bf789b4250a9890632b98c13a8c36a123432325a74a34cf3b8b981de4e9f6",
+      "distributed_sha256": "245bf789b4250a9890632b98c13a8c36a123432325a74a34cf3b8b981de4e9f6",
+      "changes": []
+    },
+    "06- NHANES Temporal External Validation.json": {
+      "original_sha256": "658847277cde9d62fbaddac6dfbe37b127eb63158f3b56831a90132f07d35c76",
+      "distributed_sha256": "658847277cde9d62fbaddac6dfbe37b127eb63158f3b56831a90132f07d35c76",
+      "changes": []
+    },
+    "06- Release Validation Status.json": {
+      "original_sha256": "60668ab1d12c4ff3e4b171ec5a9c365370de0a8870a87d6b010689e8b11b796a",
+      "distributed_sha256": "60668ab1d12c4ff3e4b171ec5a9c365370de0a8870a87d6b010689e8b11b796a",
+      "changes": []
+    },
+    "06- Scikit-Learn Reference Comparison.json": {
+      "original_sha256": "55cacea34898b64797252ee0137e060a7567f3edaa9bfb824427daeb8bcae68b",
+      "distributed_sha256": "55cacea34898b64797252ee0137e060a7567f3edaa9bfb824427daeb8bcae68b",
+      "changes": []
+    }
+  },
+  "source_notebooks_sha256": {
+    "01- Optimization And Duality.ipynb": "8bcf4dff007889c35fb4cdaaa93530a3a6a48ab6dd0746457ddc1d43f6f3e326",
+    "02- Linear SVM.ipynb": "c16821bcc604119eb28af76ead6c046de26c7e9532f4b1a6d872e8741283bb55",
+    "03- Kernel SVM.ipynb": "6a622be276300c98bfc6e97f0ea253aaa571de5b9ff04672e8f3608052cd7809",
+    "04- Multiclass SVM.ipynb": "8c47241caa4a6bf0885e9f14ad8c377ced5c1e701e7ddbf1249704f2867087c5",
+    "05- Support Vector Regression.ipynb": "4e656a2cfcb797e75bd1d0c65593892b8698308f229a9d6734e21879d6013395"
+  },
+  "report_module_sha256": "aef227802e313192567a2c4f8ff56e9f8153eaf92b62bc5cd92b8f300ab6ca78"
+}
