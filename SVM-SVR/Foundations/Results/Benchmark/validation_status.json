@@ -1,0 +1,50 @@
+{
+  "run_id": "20261127T080232Z-31999e49",
+  "status": "complete",
+  "stages": {
+    "full_development_cv": "complete",
+    "nhanes_temporal_external": "complete",
+    "dermatology_external": "unavailable"
+  },
+  "primary_report_sha256": "4e252fd78ea2cb8eb60bc73e0ff193b58fe648c3143aede276e1759558745e13",
+  "comprehensive_report_sha256": "10ce38d7aabfe8a9847a5f549d1dd8567b44bdec10781438baf4899d708cc7ee",
+  "full_cv_report_sha256": "245bf789b4250a9890632b98c13a8c36a123432325a74a34cf3b8b981de4e9f6",
+  "temporal_report_sha256": "658847277cde9d62fbaddac6dfbe37b127eb63158f3b56831a90132f07d35c76",
+  "method_source_sha256": {
+    "01- Optimization And Duality.ipynb": "8bcf4dff007889c35fb4cdaaa93530a3a6a48ab6dd0746457ddc1d43f6f3e326",
+    "02- Linear SVM.ipynb": "c16821bcc604119eb28af76ead6c046de26c7e9532f4b1a6d872e8741283bb55",
+    "03- Kernel SVM.ipynb": "6a622be276300c98bfc6e97f0ea253aaa571de5b9ff04672e8f3608052cd7809",
+    "04- Multiclass SVM.ipynb": "8c47241caa4a6bf0885e9f14ad8c377ced5c1e701e7ddbf1249704f2867087c5",
+    "05- Support Vector Regression.ipynb": "4e656a2cfcb797e75bd1d0c65593892b8698308f229a9d6734e21879d6013395"
+  },
+  "report_module_sha256": "aef227802e313192567a2c4f8ff56e9f8153eaf92b62bc5cd92b8f300ab6ca78",
+  "extension_figure_files": {
+    "full_cv_folds": [
+      "Figures/Benchmark/06- Full NHANES CV Fold Metrics.png"
+    ],
+    "full_cv_oof": [
+      "Figures/Benchmark/06- Full NHANES CV Observed Predicted.png"
+    ],
+    "external_agreement": [
+      "Figures/Benchmark/06- NHANES External Observed Predicted.png"
+    ],
+    "external_residuals": [
+      "Figures/Benchmark/06- NHANES External Residuals.png"
+    ],
+    "external_comparison": [
+      "Figures/Benchmark/06- NHANES External Model Comparison.png"
+    ],
+    "external_shift": [
+      "Figures/Benchmark/06- NHANES External Covariate Shift.png"
+    ]
+  },
+  "original_figure_count": 40,
+  "new_figure_count": 6,
+  "clinical_claim": "Prospective clinical validation remains untested.",
+  "original_report_sha256": {
+    "primary_report_sha256": "b186934a11d4b49ff1ba9f52cac4a2709fa2166dfba88571b2439ef07b253e08",
+    "comprehensive_report_sha256": "68f4f08a405387395ca2956f97f6226063700f2b3344f86c7fa466a0335750cf",
+    "full_cv_report_sha256": "245bf789b4250a9890632b98c13a8c36a123432325a74a34cf3b8b981de4e9f6",
+    "temporal_report_sha256": "658847277cde9d62fbaddac6dfbe37b127eb63158f3b56831a90132f07d35c76"
+  }
+}

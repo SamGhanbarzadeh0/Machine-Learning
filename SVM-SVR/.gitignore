@@ -4,8 +4,8 @@
 **/__pycache__/
 **/.ipynb_checkpoints/
 **/Results/06- Full NHANES CV Checkpoints/
-**/Results/06- Dermatology And NHANES Runs/
-**/Figures/06- Dermatology And NHANES Runs/
+**/Results/Runs/
+**/Figures/Runs/
 *.xpt
 *.csv
 *.bin

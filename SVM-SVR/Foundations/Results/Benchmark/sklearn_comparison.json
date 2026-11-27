@@ -22,7 +22,7 @@
     },
     "svr_parameters": {
       "kernel": "rbf",
-      "C": 10.0,
+      "C": 10,
       "epsilon": 0.05,
       "gamma": 0.03125,
       "tol": 0.001,
@@ -154,7 +154,7 @@
     "OVR": {
       "n": 75,
       "disagree": 0,
-      "agreement_fraction": 1.0
+      "agreement_fraction": 1
     },
     "SVR": {
       "n": 1661,
@@ -194,11 +194,9 @@
   "reference_metric_crosschecks": "PASS",
   "interpretation": "Descriptive agreement on the fixed test sets.",
   "figure_files": [
-    "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Scikit-Learn Reference Comparison.svg",
-    "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Scikit-Learn Reference Comparison.png"
+    "Figures/Benchmark/06- Scikit-Learn Reference Comparison.png"
   ],
   "figure_sha256": {
-    "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Scikit-Learn Reference Comparison.svg": "eb1c4de387a440db2c06b88e300da8bf07a33bef7bdf5ffa26a308aaa4533d97",
-    "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Scikit-Learn Reference Comparison.png": "f7e34ba34afb5afabfe40f4f495b1cb8a4004bdc1d25405c1b465038d0c83211"
+    "Figures/Benchmark/06- Scikit-Learn Reference Comparison.png": "f7e34ba34afb5afabfe40f4f495b1cb8a4004bdc1d25405c1b465038d0c83211"
   }
 }
