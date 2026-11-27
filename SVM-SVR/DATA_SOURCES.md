@@ -13,7 +13,7 @@ National Center for Health Statistics, CDC. [National Health and Nutrition Exami
 | Female measurements | `83adef2fdcbcb4dd484851ca6db7f477f9383135` |
 | Male measurements | `d820fa76bc3ba31cf13bf3d9648464720208fe27` |
 
-The derivative files lack participant IDs and survey weights. Their source repository had no explicit license at review, so the CSVs are omitted. Obtain permitted copies before running the benchmark.
+The derivative files lack participant IDs and survey weights. The source repository did not specify a license when the files were reviewed. The CSVs are not redistributed here; obtain permitted copies before running the benchmark.
 
 Temporal validation uses the official [BMX_L](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/BMX_L.htm) and [DEMO_L](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.htm) files from August 2021–August 2023. Eligible records have age at least 18 years, complete positive measurements, known sex and positive exam weight. The reader follows the [SAS XPORT V5 format](https://support.sas.com/content/dam/SAS/support/en/technical-papers/record-layout-of-a-sas-version-5-or-6-data-set-in-sas-transport-xport-format.pdf).
 

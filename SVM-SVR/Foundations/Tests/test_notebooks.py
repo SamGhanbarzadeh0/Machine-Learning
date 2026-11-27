@@ -55,6 +55,8 @@ class NotebookTests(unittest.TestCase):
     def test_reference_import_boundary(self):
         benchmark = next(NOTEBOOKS.glob('06- *.ipynb'))
         for cell in code_cells(benchmark):
+            self.assertFalse(cell.outputs)
+            self.assertIsNone(cell.execution_count)
             names = set(imports(cell.source))
             self.assertNotIn('numpy', names)
             self.assertEqual('sklearn' in names,
@@ -81,7 +83,6 @@ class NotebookTests(unittest.TestCase):
         for path, expected in reference['figure_sha256'].items():
             if Path(path).suffix == '.png':
                 self.assertEqual(sha256(ROOT / path), expected)
-
 
     def test_benchmark_references(self):
         folder = ROOT / 'Results' / 'Benchmark'
@@ -116,6 +117,49 @@ class NotebookTests(unittest.TestCase):
                     self.assertTrue(path.startswith('Figures/Benchmark/'))
                     self.assertEqual(Path(path).suffix, '.png')
                     self.assertTrue((ROOT / path).is_file())
+
+
+    def test_analytical_solutions(self):
+        def load(number):
+            path = next(NOTEBOOKS.glob(f'{number:02d}- *.ipynb'))
+            namespace = {'__name__': '__main__'}
+            for cell in code_cells(path):
+                exec(compile(cell.source, str(path), 'exec'), namespace)
+            return namespace
+
+        opt = load(1)
+        point, value = opt['solve_lp_2d'](
+            [-1, -2], [[1, 1]], [1], lb=[0, 0], ub=[1, 1])
+        self.assertAlmostEqual(point[0], 0.0)
+        self.assertAlmostEqual(point[1], 1.0)
+        self.assertAlmostEqual(value, -2.0)
+        point, value = opt['solve_qp_2d'](
+            [[2, 0], [0, 2]], [-2, -4], [], [], lb=[0, 0], ub=[3, 3])
+        self.assertAlmostEqual(point[0], 1.0)
+        self.assertAlmostEqual(point[1], 2.0)
+        self.assertAlmostEqual(value, -5.0)
+
+        x = [[-1.0], [1.0]]
+        for number in (2, 3, 4):
+            with self.subTest(notebook=number):
+                svm = load(number)
+                model = svm['build_two_class_boundary'](
+                    x, [0, 1], geometry=svm['Geometry']('linear'),
+                    penalty=1.0, tolerance=1e-4)
+                self.assertTrue(model.certified)
+                margins = svm['evaluate_binary_boundary'](model, x)
+                self.assertAlmostEqual(margins[0], -1.0, places=5)
+                self.assertAlmostEqual(margins[1], 1.0, places=5)
+                self.assertAlmostEqual(model.dual_value, 0.5, places=5)
+
+        svr = load(5)
+        tube = svr['construct_epsilon_tube'](
+            x, [-1.0, 1.0], geometry=svr['Geometry']('linear'),
+            penalty=2.0, tube_width=0.1, precision=1e-4)
+        self.assertTrue(tube.certified)
+        prediction = svr['measure_epsilon_tube'](tube, x)
+        self.assertAlmostEqual(prediction[0], -0.9, places=5)
+        self.assertAlmostEqual(prediction[1], 0.9, places=5)
 
 
 if __name__ == '__main__':

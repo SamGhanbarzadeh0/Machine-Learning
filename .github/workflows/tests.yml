@@ -17,9 +17,30 @@ jobs:
       run:
         working-directory: SVM-SVR
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
       - run: python -m pip install -r requirements.txt pytest
       - run: python -m pytest Foundations/Tests -q
+      - name: Verify report checksums
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+          folder = Path('Foundations/Results/Benchmark')
+          index = json.loads((folder / 'validation_status.json').read_text())
+          for key, name in (
+              ('primary_report_sha256', 'benchmark_metrics.json'),
+              ('comprehensive_report_sha256', 'comprehensive_validation.json'),
+              ('full_cv_report_sha256', 'nhanes_cross_validation.json'),
+              ('temporal_report_sha256', 'nhanes_temporal_validation.json'),
+          ):
+              actual = hashlib.sha256((folder / name).read_bytes()).hexdigest()
+              assert actual == index[key], name
+              print(f'{name}: {actual} (match)')
+          comprehensive = json.loads((folder / 'comprehensive_validation.json').read_text())
+          assert comprehensive['primary_report_sha256'] == index['primary_report_sha256']
+          print('Comprehensive report primary checksum: match')
+          PY
