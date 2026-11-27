@@ -8,7 +8,7 @@ Python implementations of linear and kernel SVMs, multiclass classification and 
 
 ## Selected results
 
-Figures from Notebook 06, using the recorded benchmark run `20261127T080232Z-31999e49`.
+Selected figures from the medical benchmark in Notebook 06.
 
 | Dermatology OVO accuracy | NHANES test R² | NHANES temporal validation MAE |
 | :---: | :---: | :---: |
@@ -18,10 +18,10 @@ Figures from Notebook 06, using the recorded benchmark run `20261127T080232Z-319
 <tr><th colspan="2" align="center">SVM · Dermatology classification</th></tr>
 <tr>
   <td width="50%" align="center" valign="top">
-    <a href="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20Dermatology%20Confusion%20Row%20Normalized.png"><img src="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20Dermatology%20Confusion%20Row%20Normalized.png" alt="Confusion matrices" width="255" height="217"></a>
+    <a href="SVM-SVR/Foundations/Figures/Benchmark/06-%20Dermatology%20Confusion%20Row%20Normalized.png"><img src="SVM-SVR/Foundations/Figures/Benchmark/06-%20Dermatology%20Confusion%20Row%20Normalized.png" alt="Confusion matrices" width="255" height="217"></a>
   </td>
   <td width="50%" align="center" valign="top">
-    <a href="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20Dermatology%20Multiclass%20ROC.png"><img src="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20Dermatology%20Multiclass%20ROC.png" alt="Multiclass ROC curves" width="349" height="217"></a>
+    <a href="SVM-SVR/Foundations/Figures/Benchmark/06-%20Dermatology%20Multiclass%20ROC.png"><img src="SVM-SVR/Foundations/Figures/Benchmark/06-%20Dermatology%20Multiclass%20ROC.png" alt="Multiclass ROC curves" width="349" height="217"></a>
   </td>
 </tr>
 <tr>
@@ -30,10 +30,10 @@ Figures from Notebook 06, using the recorded benchmark run `20261127T080232Z-319
 </tr>
 <tr>
   <td width="50%" align="center" valign="top">
-    <a href="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20Dermatology%20Classwise%20Metrics.png"><img src="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20Dermatology%20Classwise%20Metrics.png" alt="Classwise performance" width="349" height="228"></a>
+    <a href="SVM-SVR/Foundations/Figures/Benchmark/06-%20Dermatology%20Classwise%20Metrics.png"><img src="SVM-SVR/Foundations/Figures/Benchmark/06-%20Dermatology%20Classwise%20Metrics.png" alt="Classwise performance" width="349" height="228"></a>
   </td>
   <td width="50%" align="center" valign="top">
-    <a href="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20Dermatology%20Feature%20Importance%20And%20Ablation.png"><img src="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20Dermatology%20Feature%20Importance%20And%20Ablation.png" alt="Feature importance and ablation" width="343" height="228"></a>
+    <a href="SVM-SVR/Foundations/Figures/Benchmark/06-%20Dermatology%20Feature%20Importance%20And%20Ablation.png"><img src="SVM-SVR/Foundations/Figures/Benchmark/06-%20Dermatology%20Feature%20Importance%20And%20Ablation.png" alt="Feature importance and ablation" width="343" height="228"></a>
   </td>
 </tr>
 <tr>
@@ -43,10 +43,10 @@ Figures from Notebook 06, using the recorded benchmark run `20261127T080232Z-319
 <tr><th colspan="2" align="center">SVR · NHANES body-weight regression</th></tr>
 <tr>
   <td width="50%" align="center" valign="top">
-    <a href="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20NHANES%20Observed%20Versus%20Predicted.png"><img src="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20NHANES%20Observed%20Versus%20Predicted.png" alt="Observed vs. predicted body weight" width="342" height="348"></a>
+    <a href="SVM-SVR/Foundations/Figures/Benchmark/06-%20NHANES%20Observed%20Versus%20Predicted.png"><img src="SVM-SVR/Foundations/Figures/Benchmark/06-%20NHANES%20Observed%20Versus%20Predicted.png" alt="Observed vs. predicted body weight" width="342" height="348"></a>
   </td>
   <td width="50%" align="center" valign="top">
-    <a href="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20NHANES%20Regression%20Calibration.png"><img src="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20NHANES%20Regression%20Calibration.png" alt="Regression calibration" width="349" height="348"></a>
+    <a href="SVM-SVR/Foundations/Figures/Benchmark/06-%20NHANES%20Regression%20Calibration.png"><img src="SVM-SVR/Foundations/Figures/Benchmark/06-%20NHANES%20Regression%20Calibration.png" alt="Regression calibration" width="349" height="348"></a>
   </td>
 </tr>
 <tr>
@@ -55,10 +55,10 @@ Figures from Notebook 06, using the recorded benchmark run `20261127T080232Z-319
 </tr>
 <tr>
   <td width="50%" align="center" valign="top">
-    <a href="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20NHANES%20External%20Model%20Comparison.png"><img src="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20NHANES%20External%20Model%20Comparison.png" alt="Temporal external model comparison" width="331" height="198"></a>
+    <a href="SVM-SVR/Foundations/Figures/Benchmark/06-%20NHANES%20External%20Model%20Comparison.png"><img src="SVM-SVR/Foundations/Figures/Benchmark/06-%20NHANES%20External%20Model%20Comparison.png" alt="Temporal external model comparison" width="331" height="198"></a>
   </td>
   <td width="50%" align="center" valign="top">
-    <a href="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20SVR%20Primal%20Dual%20Gap%20Convergence.png"><img src="SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49/06-%20SVR%20Primal%20Dual%20Gap%20Convergence.png" alt="Primal–dual gap convergence" width="349" height="198"></a>
+    <a href="SVM-SVR/Foundations/Figures/Benchmark/06-%20SVR%20Primal%20Dual%20Gap%20Convergence.png"><img src="SVM-SVR/Foundations/Figures/Benchmark/06-%20SVR%20Primal%20Dual%20Gap%20Convergence.png" alt="Primal–dual gap convergence" width="349" height="198"></a>
   </td>
 </tr>
 <tr>
@@ -67,8 +67,6 @@ Figures from Notebook 06, using the recorded benchmark run `20261127T080232Z-319
 </tr>
 </table>
 
-[All benchmark figures (PNG and SVG)](SVM-SVR/Foundations/Figures/06-%20Dermatology%20And%20NHANES%20Runs/20261127T080232Z-31999e49) · [Numerical results](SVM-SVR/Foundations/Results/README.md)
+[All benchmark figures](SVM-SVR/Foundations/Figures/Benchmark) · [Numerical results](SVM-SVR/Foundations/Results/README.md)
 
-## Repository notes
-
-The [repository audit](audit/2026-11-20-stage-01.md) records the original baseline and file inventory. See [LICENSE](LICENSE) for the repository license and the project data-source notes for dataset terms.
+See [LICENSE](LICENSE) for the repository license and [data sources](SVM-SVR/DATA_SOURCES.md) for dataset terms.

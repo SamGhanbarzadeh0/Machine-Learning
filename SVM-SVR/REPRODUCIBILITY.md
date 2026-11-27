@@ -25,6 +25,6 @@ The full SVR Gram matrix occupies about 353 MB; the largest CV fold requires abo
 
 ## Saved files
 
-Notebook 06 writes a separate run directory under `Foundations/Figures/06- Dermatology And NHANES Runs` and `Foundations/Results/06- Dermatology And NHANES Runs`. The repository includes 47 PNG/SVG figure pairs and six JSON reports from run `20261127T080232Z-31999e49`. The notebooks contain source cells; run notebook 06 to regenerate the inline outputs.
+The 27 November 2026 benchmark is available in [Figures/Benchmark](Foundations/Figures/Benchmark) (47 PNGs) and [Results/Benchmark](Foundations/Results/Benchmark) (six JSON reports). Notebook 06 creates separate directories for new runs; its source code, checkpoint handling and PNG/SVG generation are retained. The historical NHANES comparison uses `Foundations/Results/NHANES baseline.json`.
 
-The distributed reports omit row-level margins, subset row indices and a private filesystem path. [Report hashes](Foundations/Documentation/Report%20Provenance.json) list both the original and distributed SHA-256 values. The validation index retains the original report hashes. Raw data and CV checkpoints stay local.
+The [original benchmark snapshot](https://github.com/SamGhanbarzadeh0/Machine-Learning/tree/3d0b10c5067d4dcf923ede5f1fa0a2bbeecca909/SVM-SVR) retains SVGs, original filenames, source and report checksums, and the provenance of the distributed reports. Archived JSON reports are unchanged; paths and hashes inside them refer to the original run layout. Row-level margins, subset indices and a private filesystem path were omitted in the distributed reports. Raw data and CV checkpoints stay local.
