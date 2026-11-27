@@ -75,7 +75,9 @@ class NotebookTests(unittest.TestCase):
         self.assertEqual(index['status'], 'complete')
         source_hashes = {path.name: sha256(path)
                          for path in sorted(NOTEBOOKS.glob('0[1-5]- *.ipynb'))}
-        module_hash = sha256(ROOT / 'Code' / 'report_evaluation.py')
+        module_hash = index['report_module_sha256']
+        self.assertEqual(module_hash,
+                         'aef227802e313192567a2c4f8ff56e9f8153eaf92b62bc5cd92b8f300ab6ca78')
         for name in ('validation_status.json', 'benchmark_metrics.json',
                      'comprehensive_validation.json'):
             report = json.loads((folder / name).read_text())

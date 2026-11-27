@@ -51,10 +51,20 @@ class ReportEvaluation(unittest.TestCase):
             original = [Path(p).read_bytes() for p in paths]
             report.visualize_confusion([[2, 1], [0, 3]], ['A', 'B'],
                                        'Confusion', directory, 'test')
-            with self.assertRaises(RuntimeError):
+            with self.assertRaisesRegex(RuntimeError, 'Existing figure differs:'):
                 report.visualize_confusion([[1, 2], [0, 3]], ['A', 'B'],
                                            'Confusion', directory, 'test')
             self.assertEqual(original, [Path(p).read_bytes() for p in paths])
+
+    def test_score_availability(self):
+        hard = report.extended_classification([0, 1], [0, 1], [0, 1])
+        self.assertIsNone(hard['roc_auc'])
+        self.assertIsNone(hard['average_precision'])
+        scored = report.extended_classification(
+            [0, 1], [0, 1], [0, 1], decision_scores=[-1.0, 1.0])
+        self.assertEqual(scored['roc_auc'], 1.0)
+        self.assertEqual(scored['average_precision'], 1.0)
+        self.assertIsNone(report.extended_regression([1., 2.], [1., 2.])['adjusted_r2'])
 
 
 if __name__ == '__main__':
