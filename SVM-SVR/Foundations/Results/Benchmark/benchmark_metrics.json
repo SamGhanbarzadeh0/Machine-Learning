@@ -95,12 +95,12 @@
         "1": {
           "support": 23,
           "predicted_support": 23,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "specificity": 1.0,
-          "npv": 1.0,
-          "jaccard": 1.0,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1,
+          "specificity": 1,
+          "npv": 1,
+          "jaccard": 1,
           "false_positive": 0,
           "false_negative": 0
         },
@@ -119,12 +119,12 @@
         "3": {
           "support": 15,
           "predicted_support": 15,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "specificity": 1.0,
-          "npv": 1.0,
-          "jaccard": 1.0,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1,
+          "specificity": 1,
+          "npv": 1,
+          "jaccard": 1,
           "false_positive": 0,
           "false_negative": 0
         },
@@ -143,24 +143,24 @@
         "5": {
           "support": 11,
           "predicted_support": 11,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "specificity": 1.0,
-          "npv": 1.0,
-          "jaccard": 1.0,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1,
+          "specificity": 1,
+          "npv": 1,
+          "jaccard": 1,
           "false_positive": 0,
           "false_negative": 0
         },
         "6": {
           "support": 4,
           "predicted_support": 4,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "specificity": 1.0,
-          "npv": 1.0,
-          "jaccard": 1.0,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1,
+          "specificity": 1,
+          "npv": 1,
+          "jaccard": 1,
           "false_positive": 0,
           "false_negative": 0
         }
@@ -253,12 +253,12 @@
         "1": {
           "support": 23,
           "predicted_support": 23,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "specificity": 1.0,
-          "npv": 1.0,
-          "jaccard": 1.0,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1,
+          "specificity": 1,
+          "npv": 1,
+          "jaccard": 1,
           "false_positive": 0,
           "false_negative": 0
         },
@@ -266,10 +266,10 @@
           "support": 12,
           "predicted_support": 14,
           "precision": 0.8571428571428571,
-          "recall": 1.0,
+          "recall": 1,
           "f1": 0.9230769230769231,
           "specificity": 0.9682539682539683,
-          "npv": 1.0,
+          "npv": 1,
           "jaccard": 0.8571428571428571,
           "false_positive": 2,
           "false_negative": 0
@@ -277,10 +277,10 @@
         "3": {
           "support": 15,
           "predicted_support": 14,
-          "precision": 1.0,
+          "precision": 1,
           "recall": 0.9333333333333333,
           "f1": 0.9655172413793104,
-          "specificity": 1.0,
+          "specificity": 1,
           "npv": 0.9836065573770492,
           "jaccard": 0.9333333333333333,
           "false_positive": 0,
@@ -302,10 +302,10 @@
           "support": 11,
           "predicted_support": 12,
           "precision": 0.9166666666666666,
-          "recall": 1.0,
+          "recall": 1,
           "f1": 0.9565217391304348,
           "specificity": 0.984375,
-          "npv": 1.0,
+          "npv": 1,
           "jaccard": 0.9166666666666666,
           "false_positive": 1,
           "false_negative": 0
@@ -313,12 +313,12 @@
         "6": {
           "support": 4,
           "predicted_support": 4,
-          "precision": 1.0,
-          "recall": 1.0,
-          "f1": 1.0,
-          "specificity": 1.0,
-          "npv": 1.0,
-          "jaccard": 1.0,
+          "precision": 1,
+          "recall": 1,
+          "f1": 1,
+          "specificity": 1,
+          "npv": 1,
+          "jaccard": 1,
           "false_positive": 0,
           "false_negative": 0
         }
@@ -356,7 +356,7 @@
       "error_rate": 0.6933333333333334,
       "balanced_accuracy": 0.16666666666666666,
       "multiclass_mcc": null,
-      "cohen_kappa": 0.0,
+      "cohen_kappa": 0,
       "confusion_matrix": [
         [
           23,
@@ -412,10 +412,10 @@
           "support": 23,
           "predicted_support": 75,
           "precision": 0.30666666666666664,
-          "recall": 1.0,
+          "recall": 1,
           "f1": 0.46938775510204084,
-          "specificity": 0.0,
-          "npv": 0.0,
+          "specificity": 0,
+          "npv": 0,
           "jaccard": 0.30666666666666664,
           "false_positive": 52,
           "false_negative": 0
@@ -423,60 +423,60 @@
         "2": {
           "support": 12,
           "predicted_support": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "specificity": 1.0,
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "specificity": 1,
           "npv": 0.84,
-          "jaccard": 0.0,
+          "jaccard": 0,
           "false_positive": 0,
           "false_negative": 12
         },
         "3": {
           "support": 15,
           "predicted_support": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "specificity": 1.0,
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "specificity": 1,
           "npv": 0.8,
-          "jaccard": 0.0,
+          "jaccard": 0,
           "false_positive": 0,
           "false_negative": 15
         },
         "4": {
           "support": 10,
           "predicted_support": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "specificity": 1.0,
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "specificity": 1,
           "npv": 0.8666666666666667,
-          "jaccard": 0.0,
+          "jaccard": 0,
           "false_positive": 0,
           "false_negative": 10
         },
         "5": {
           "support": 11,
           "predicted_support": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "specificity": 1.0,
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "specificity": 1,
           "npv": 0.8533333333333334,
-          "jaccard": 0.0,
+          "jaccard": 0,
           "false_positive": 0,
           "false_negative": 11
         },
         "6": {
           "support": 4,
           "predicted_support": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "specificity": 1.0,
+          "precision": 0,
+          "recall": 0,
+          "f1": 0,
+          "specificity": 1,
           "npv": 0.9466666666666667,
-          "jaccard": 0.0,
+          "jaccard": 0,
           "false_positive": 0,
           "false_negative": 4
         }
@@ -575,10 +575,10 @@
       "bias_prediction_minus_observed": 0.7400540999162385,
       "error_standard_deviation": 21.235265336648727,
       "r2": -0.0012152708994455086,
-      "explained_variance": 0.0,
+      "explained_variance": 0,
       "pearson_r": null,
       "spearman_rho": null,
-      "lin_concordance": 0.0,
+      "lin_concordance": 0,
       "rmse_over_training_sd": 0.9484455738620657,
       "mae_over_training_sd": 0.7458810819763086,
       "symmetric_mape_percent": 20.20928244987566,
@@ -627,9 +627,9 @@
     "split_seed": 20261127,
     "split_unit": "CSV row, no verified participant identifiers",
     "solver_spec": {
-      "C": 10.0,
+      "C": 10,
       "epsilon": 0.05,
-      "sigma": 4.0,
+      "sigma": 4,
       "precision": 0.001,
       "update_budgets": 50
     },
@@ -645,7 +645,7 @@
       "kkt_error": 0.00013906054490180064,
       "stationarity_gap": 0.00025086579327748826,
       "primal_dual_gap": 0.030217649239602906,
-      "relative_gap": 6.199095796740769e-06,
+      "relative_gap": 0.000006199095796740769,
       "support_vector_count": 4687,
       "pair_updates": 59481,
       "training_seconds": 789.4345078960001
@@ -677,7 +677,7 @@
     ]
   },
   "historical_comparison": {
-    "archive": "Results/06- NHANES SVR Independent Core Results.json",
+    "archive": "Results/nhanes_baseline.json",
     "status": "DIFFERENCE_REQUIRES_REVIEW",
     "differences": [
       {
@@ -700,8 +700,8 @@
         {
           "class": 1,
           "support": 23,
-          "auc": 1.0,
-          "ap": 1.0
+          "auc": 1,
+          "ap": 1
         },
         {
           "class": 2,
@@ -712,8 +712,8 @@
         {
           "class": 3,
           "support": 15,
-          "auc": 1.0,
-          "ap": 1.0
+          "auc": 1,
+          "ap": 1
         },
         {
           "class": 4,
@@ -724,14 +724,14 @@
         {
           "class": 5,
           "support": 11,
-          "auc": 1.0,
-          "ap": 1.0
+          "auc": 1,
+          "ap": 1
         },
         {
           "class": 6,
           "support": 4,
-          "auc": 1.0,
-          "ap": 1.0
+          "auc": 1,
+          "ap": 1
         }
       ],
       "ovr_macro": {
@@ -747,49 +747,49 @@
           "low": 1,
           "high": 2,
           "support": 35,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         },
         {
           "low": 1,
           "high": 3,
           "support": 38,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         },
         {
           "low": 1,
           "high": 4,
           "support": 33,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         },
         {
           "low": 1,
           "high": 5,
           "support": 34,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         },
         {
           "low": 1,
           "high": 6,
           "support": 27,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         },
         {
           "low": 2,
           "high": 3,
           "support": 27,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         },
         {
           "low": 2,
@@ -803,65 +803,65 @@
           "low": 2,
           "high": 5,
           "support": 23,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         },
         {
           "low": 2,
           "high": 6,
           "support": 16,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         },
         {
           "low": 3,
           "high": 4,
           "support": 25,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         },
         {
           "low": 3,
           "high": 5,
           "support": 26,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         },
         {
           "low": 3,
           "high": 6,
           "support": 19,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         },
         {
           "low": 4,
           "high": 5,
           "support": 21,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         },
         {
           "low": 4,
           "high": 6,
           "support": 14,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         },
         {
           "low": 5,
           "high": 6,
           "support": 15,
-          "auc": 1.0,
-          "ap_high": 1.0,
-          "ap_low": 1.0
+          "auc": 1,
+          "ap_high": 1,
+          "ap_low": 1
         }
       ],
       "ovo_mean_pair_auc": 0.9938888888888889,
@@ -870,28 +870,28 @@
           "model": "OVO",
           "class": 1,
           "support": 23,
-          "precision": 1.0,
-          "recall": 1.0,
-          "specificity": 1.0,
-          "f1": 1.0,
-          "f2": 1.0,
-          "f0.5": 1.0,
-          "gmean": 1.0,
-          "youden_j": 1.0,
+          "precision": 1,
+          "recall": 1,
+          "specificity": 1,
+          "f1": 1,
+          "f2": 1,
+          "f0.5": 1,
+          "gmean": 1,
+          "youden_j": 1,
           "lr_positive": null,
-          "lr_negative": 0.0,
+          "lr_negative": 0,
           "diagnostic_odds_ratio": null,
           "precision_ci": [
             0.8568833815495731,
-            1.0
+            1
           ],
           "recall_ci": [
             0.8568833815495731,
-            1.0
+            1
           ],
           "f1_ci": [
-            1.0,
-            1.0
+            1,
+            1
           ]
         },
         {
@@ -908,7 +908,7 @@
           "youden_j": 0.8690476190476191,
           "lr_positive": 19.24999999999998,
           "lr_negative": 0.08750000000000005,
-          "diagnostic_odds_ratio": 220.0,
+          "diagnostic_odds_ratio": 220,
           "precision_ci": [
             0.524107694133997,
             0.9242861328730683
@@ -926,28 +926,28 @@
           "model": "OVO",
           "class": 3,
           "support": 15,
-          "precision": 1.0,
-          "recall": 1.0,
-          "specificity": 1.0,
-          "f1": 1.0,
-          "f2": 1.0,
-          "f0.5": 1.0,
-          "gmean": 1.0,
-          "youden_j": 1.0,
+          "precision": 1,
+          "recall": 1,
+          "specificity": 1,
+          "f1": 1,
+          "f2": 1,
+          "f0.5": 1,
+          "gmean": 1,
+          "youden_j": 1,
           "lr_positive": null,
-          "lr_negative": 0.0,
+          "lr_negative": 0,
           "diagnostic_odds_ratio": null,
           "precision_ci": [
             0.7961166989641515,
-            1.0
+            1
           ],
           "recall_ci": [
             0.7961166989641515,
-            1.0
+            1
           ],
           "f1_ci": [
-            1.0,
-            1.0
+            1,
+            1
           ]
         },
         {
@@ -982,84 +982,84 @@
           "model": "OVO",
           "class": 5,
           "support": 11,
-          "precision": 1.0,
-          "recall": 1.0,
-          "specificity": 1.0,
-          "f1": 1.0,
-          "f2": 1.0,
-          "f0.5": 1.0,
-          "gmean": 1.0,
-          "youden_j": 1.0,
+          "precision": 1,
+          "recall": 1,
+          "specificity": 1,
+          "f1": 1,
+          "f2": 1,
+          "f0.5": 1,
+          "gmean": 1,
+          "youden_j": 1,
           "lr_positive": null,
-          "lr_negative": 0.0,
+          "lr_negative": 0,
           "diagnostic_odds_ratio": null,
           "precision_ci": [
             0.7411670330319684,
-            1.0
+            1
           ],
           "recall_ci": [
             0.7411670330319684,
-            1.0
+            1
           ],
           "f1_ci": [
-            1.0,
-            1.0
+            1,
+            1
           ]
         },
         {
           "model": "OVO",
           "class": 6,
           "support": 4,
-          "precision": 1.0,
-          "recall": 1.0,
-          "specificity": 1.0,
-          "f1": 1.0,
-          "f2": 1.0,
-          "f0.5": 1.0,
-          "gmean": 1.0,
-          "youden_j": 1.0,
+          "precision": 1,
+          "recall": 1,
+          "specificity": 1,
+          "f1": 1,
+          "f2": 1,
+          "f0.5": 1,
+          "gmean": 1,
+          "youden_j": 1,
           "lr_positive": null,
-          "lr_negative": 0.0,
+          "lr_negative": 0,
           "diagnostic_odds_ratio": null,
           "precision_ci": [
             0.5101091635454027,
-            1.0
+            1
           ],
           "recall_ci": [
             0.5101091635454027,
-            1.0
+            1
           ],
           "f1_ci": [
-            1.0,
-            1.0
+            1,
+            1
           ]
         },
         {
           "model": "OVR",
           "class": 1,
           "support": 23,
-          "precision": 1.0,
-          "recall": 1.0,
-          "specificity": 1.0,
-          "f1": 1.0,
-          "f2": 1.0,
-          "f0.5": 1.0,
-          "gmean": 1.0,
-          "youden_j": 1.0,
+          "precision": 1,
+          "recall": 1,
+          "specificity": 1,
+          "f1": 1,
+          "f2": 1,
+          "f0.5": 1,
+          "gmean": 1,
+          "youden_j": 1,
           "lr_positive": null,
-          "lr_negative": 0.0,
+          "lr_negative": 0,
           "diagnostic_odds_ratio": null,
           "precision_ci": [
             0.8568833815495731,
-            1.0
+            1
           ],
           "recall_ci": [
             0.8568833815495731,
-            1.0
+            1
           ],
           "f1_ci": [
-            1.0,
-            1.0
+            1,
+            1
           ]
         },
         {
@@ -1067,7 +1067,7 @@
           "class": 2,
           "support": 12,
           "precision": 0.8571428571428571,
-          "recall": 1.0,
+          "recall": 1,
           "specificity": 0.9682539682539683,
           "f1": 0.9230769230769231,
           "f2": 0.967741935483871,
@@ -1075,7 +1075,7 @@
           "gmean": 0.9839989676081822,
           "youden_j": 0.9682539682539684,
           "lr_positive": 31.5,
-          "lr_negative": 0.0,
+          "lr_negative": 0,
           "diagnostic_odds_ratio": null,
           "precision_ci": [
             0.6005862050302965,
@@ -1083,20 +1083,20 @@
           ],
           "recall_ci": [
             0.7575059933447592,
-            1.0
+            1
           ],
           "f1_ci": [
             0.8275862068965517,
-            1.0
+            1
           ]
         },
         {
           "model": "OVR",
           "class": 3,
           "support": 15,
-          "precision": 1.0,
+          "precision": 1,
           "recall": 0.9333333333333333,
-          "specificity": 1.0,
+          "specificity": 1,
           "f1": 0.9655172413793104,
           "f2": 0.9459459459459459,
           "f0.5": 0.9859154929577465,
@@ -1107,7 +1107,7 @@
           "diagnostic_odds_ratio": null,
           "precision_ci": [
             0.7846891972623643,
-            1.0
+            1
           ],
           "recall_ci": [
             0.7018347012621998,
@@ -1115,7 +1115,7 @@
           ],
           "f1_ci": [
             0.8888888888888888,
-            1.0
+            1
           ]
         },
         {
@@ -1151,15 +1151,15 @@
           "class": 5,
           "support": 11,
           "precision": 0.9166666666666666,
-          "recall": 1.0,
+          "recall": 1,
           "specificity": 0.984375,
           "f1": 0.9565217391304348,
           "f2": 0.9821428571428571,
           "f0.5": 0.9322033898305084,
           "gmean": 0.9921567416492215,
           "youden_j": 0.984375,
-          "lr_positive": 64.0,
-          "lr_negative": 0.0,
+          "lr_positive": 64,
+          "lr_negative": 0,
           "diagnostic_odds_ratio": null,
           "precision_ci": [
             0.646120088858883,
@@ -1167,46 +1167,46 @@
           ],
           "recall_ci": [
             0.7411670330319684,
-            1.0
+            1
           ],
           "f1_ci": [
             0.88,
-            1.0
+            1
           ]
         },
         {
           "model": "OVR",
           "class": 6,
           "support": 4,
-          "precision": 1.0,
-          "recall": 1.0,
-          "specificity": 1.0,
-          "f1": 1.0,
-          "f2": 1.0,
-          "f0.5": 1.0,
-          "gmean": 1.0,
-          "youden_j": 1.0,
+          "precision": 1,
+          "recall": 1,
+          "specificity": 1,
+          "f1": 1,
+          "f2": 1,
+          "f0.5": 1,
+          "gmean": 1,
+          "youden_j": 1,
           "lr_positive": null,
-          "lr_negative": 0.0,
+          "lr_negative": 0,
           "diagnostic_odds_ratio": null,
           "precision_ci": [
             0.5101091635454027,
-            1.0
+            1
           ],
           "recall_ci": [
             0.5101091635454027,
-            1.0
+            1
           ],
           "f1_ci": [
-            1.0,
-            1.0
+            1,
+            1
           ]
         }
       ],
       "mcnemar": {
         "ovo_only_correct": 1,
         "ovr_only_correct": 1,
-        "p_exact": 1.0
+        "p_exact": 1
       },
       "bootstrap_replicates": 2000,
       "limitations": "Uncalibrated margins; OVO pairwise and OVR classwise scores. Stratified intervals condition on fitted models; undefined ratios are recorded as null."
@@ -1221,7 +1221,7 @@
           "loa_upper": 6.940207514100114,
           "calibration_slope": 0.9948324076034963,
           "calibration_intercept": 0.4605858754558767,
-          "mmd2_gaussian": 3.845909498734201e-05
+          "mmd2_gaussian": 0.00003845909498734201
         },
         "Ridge": {
           "rae_train_mean": 0.1910995511018018,
@@ -1234,8 +1234,8 @@
           "mmd2_gaussian": 0.0014677374838676371
         },
         "Mean": {
-          "rae_train_mean": 1.0,
-          "rrse_train_mean": 1.0,
+          "rae_train_mean": 1,
+          "rrse_train_mean": 1,
           "bias": 0.7400540999162385,
           "loa_lower": -40.88106595991527,
           "loa_upper": 42.36117415974774,
@@ -1438,7 +1438,7 @@
       "weight_cutoffs_kg": [
         64.2,
         74.6,
-        85.0,
+        85,
         99.8
       ],
       "bootstrap_ci": [
@@ -1513,7 +1513,7 @@
         {
           "updates": 0,
           "stationarity_gap": 7.579805282156,
-          "dual": 0.0,
+          "dual": 0,
           "primal": 47744.67941627201,
           "gap": 47744.67941627201
         },
@@ -3355,66 +3355,40 @@
   "bootstrap_rng": "Python random.Random; fixed seeds 20261125 and 20261126",
   "figure_files": {
     "dermatology": [
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Confusion Counts.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Confusion Counts.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Confusion Row Normalized.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Confusion Row Normalized.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Classwise Metrics.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Classwise Metrics.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Classification Comparison.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Classification Comparison.png"
+      "Figures/Benchmark/06- Dermatology Confusion Counts.png",
+      "Figures/Benchmark/06- Dermatology Confusion Row Normalized.png",
+      "Figures/Benchmark/06- Dermatology Classwise Metrics.png",
+      "Figures/Benchmark/06- Dermatology Classification Comparison.png"
     ],
     "advanced_classification": [
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Multiclass ROC.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Multiclass ROC.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Precision Recall.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Precision Recall.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Pairwise AUC Heatmap.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Pairwise AUC Heatmap.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Classwise Confidence Intervals.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Dermatology Classwise Confidence Intervals.png"
+      "Figures/Benchmark/06- Dermatology Multiclass ROC.png",
+      "Figures/Benchmark/06- Dermatology Precision Recall.png",
+      "Figures/Benchmark/06- Dermatology Pairwise AUC Heatmap.png",
+      "Figures/Benchmark/06- Dermatology Classwise Confidence Intervals.png"
     ],
     "nhanes": [
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Observed Versus Predicted.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Observed Versus Predicted.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Regression Residuals.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Regression Residuals.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Regression Comparison.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Regression Comparison.png"
+      "Figures/Benchmark/06- NHANES Observed Versus Predicted.png",
+      "Figures/Benchmark/06- NHANES Regression Residuals.png",
+      "Figures/Benchmark/06- NHANES Regression Comparison.png"
     ],
     "advanced_regression": [
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Bland Altman.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Bland Altman.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Residual QQ.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Residual QQ.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Absolute Error ECDF.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Absolute Error ECDF.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Regression Calibration.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Regression Calibration.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Error Boxplot.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Error Boxplot.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Sex Specific Errors.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Sex Specific Errors.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Weight Dependent Errors.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Weight Dependent Errors.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Bootstrap Confidence Intervals.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Bootstrap Confidence Intervals.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Paired Bootstrap Delta MAE.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- NHANES Paired Bootstrap Delta MAE.png"
+      "Figures/Benchmark/06- NHANES Bland Altman.png",
+      "Figures/Benchmark/06- NHANES Residual QQ.png",
+      "Figures/Benchmark/06- NHANES Absolute Error ECDF.png",
+      "Figures/Benchmark/06- NHANES Regression Calibration.png",
+      "Figures/Benchmark/06- NHANES Error Boxplot.png",
+      "Figures/Benchmark/06- NHANES Sex Specific Errors.png",
+      "Figures/Benchmark/06- NHANES Weight Dependent Errors.png",
+      "Figures/Benchmark/06- NHANES Bootstrap Confidence Intervals.png",
+      "Figures/Benchmark/06- NHANES Paired Bootstrap Delta MAE.png"
     ],
     "optimization": [
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- SVR KKT Convergence.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- SVR KKT Convergence.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- SVR Dual Objective Convergence.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- SVR Dual Objective Convergence.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- SVR Primal Dual Gap Convergence.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- SVR Primal Dual Gap Convergence.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Computational Performance.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Computational Performance.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- SVR Support Vector Coefficient Distribution.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- SVR Support Vector Coefficient Distribution.png",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Support Vector Ratio.svg",
-      "Figures/06- Dermatology And NHANES Runs/20261127T080232Z-31999e49/06- Support Vector Ratio.png"
+      "Figures/Benchmark/06- SVR KKT Convergence.png",
+      "Figures/Benchmark/06- SVR Dual Objective Convergence.png",
+      "Figures/Benchmark/06- SVR Primal Dual Gap Convergence.png",
+      "Figures/Benchmark/06- Computational Performance.png",
+      "Figures/Benchmark/06- SVR Support Vector Coefficient Distribution.png",
+      "Figures/Benchmark/06- Support Vector Ratio.png"
     ]
   },
   "limitations": [

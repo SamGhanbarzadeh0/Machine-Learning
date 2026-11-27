@@ -30,7 +30,7 @@ def imports(source):
             yield node.module.split('.')[0]
 
 
-class SourceIntegrity(unittest.TestCase):
+class NotebookTests(unittest.TestCase):
     def test_algorithm_notebooks(self):
         paths = sorted(NOTEBOOKS.glob('0[1-5]- *.ipynb'))
         self.assertEqual(len(paths), 5)
@@ -65,10 +65,10 @@ class SourceIntegrity(unittest.TestCase):
 
     def test_saved_benchmark(self):
         folder = ROOT / 'Results' / 'Benchmark'
-        baseline = json.loads((ROOT / 'Results' / 'NHANES baseline.json').read_text())
+        baseline = json.loads((ROOT / 'Results' / 'nhanes_baseline.json').read_text())
         self.assertEqual(baseline['sample_count'], 8302)
         self.assertEqual(baseline['training_rows'] + baseline['heldout_rows'], 8302)
-        index = json.loads((folder / 'Validation status.json').read_text())
+        index = json.loads((folder / 'validation_status.json').read_text())
         self.assertEqual(index['status'], 'complete')
         for name, expected in index['method_source_sha256'].items():
             self.assertEqual(sha256(NOTEBOOKS / name), expected)
@@ -77,10 +77,45 @@ class SourceIntegrity(unittest.TestCase):
         self.assertEqual(len(list(folder.glob('*.json'))), 6)
         figures = ROOT / 'Figures' / 'Benchmark'
         self.assertEqual(len(list(figures.glob('*.png'))), 47)
-        reference = json.loads((folder / '06- Scikit-Learn Reference Comparison.json').read_text())
+        reference = json.loads((folder / 'sklearn_comparison.json').read_text())
         for path, expected in reference['figure_sha256'].items():
             if Path(path).suffix == '.png':
-                self.assertEqual(sha256(figures / Path(path).name), expected)
+                self.assertEqual(sha256(ROOT / path), expected)
+
+
+    def test_benchmark_references(self):
+        folder = ROOT / 'Results' / 'Benchmark'
+        reports = {p.name: json.loads(p.read_text()) for p in folder.glob('*.json')}
+        index = reports['validation_status.json']
+        for key, name in (
+            ('primary_report_sha256', 'benchmark_metrics.json'),
+            ('comprehensive_report_sha256', 'comprehensive_validation.json'),
+            ('full_cv_report_sha256', 'nhanes_cross_validation.json'),
+            ('temporal_report_sha256', 'nhanes_temporal_validation.json'),
+        ):
+            self.assertEqual(sha256(folder / name), index[key])
+        self.assertEqual(reports['comprehensive_validation.json']['primary_report_sha256'],
+                         index['primary_report_sha256'])
+        archive = reports['benchmark_metrics.json']['historical_comparison']['archive']
+        self.assertTrue((ROOT / archive).is_file())
+
+        def figure_paths(value):
+            if isinstance(value, str) and value.startswith('Figures/'):
+                yield value
+            elif isinstance(value, list):
+                for item in value:
+                    yield from figure_paths(item)
+            elif isinstance(value, dict):
+                for key, item in value.items():
+                    yield from figure_paths(key)
+                    yield from figure_paths(item)
+
+        for name, report in reports.items():
+            for path in figure_paths(report):
+                with self.subTest(report=name, path=path):
+                    self.assertTrue(path.startswith('Figures/Benchmark/'))
+                    self.assertEqual(Path(path).suffix, '.png')
+                    self.assertTrue((ROOT / path).is_file())
 
 
 if __name__ == '__main__':

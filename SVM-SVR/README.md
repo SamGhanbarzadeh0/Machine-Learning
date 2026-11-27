@@ -37,7 +37,8 @@ From the `SVM-SVR` directory:
 
 ```bash
 python -m pip install -r requirements.txt
-python -m unittest discover -s Foundations/Tests -v
+python -m pip install pytest
+python -m pytest Foundations/Tests -q
 python -m notebook
 ```
 
